@@ -16,6 +16,7 @@ export class PlantListingTableComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
+    console.log("plant Listings init");
     this.plantListings$ = this.restService.getPlantListings();
   }
 }

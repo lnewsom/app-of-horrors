@@ -2,6 +2,7 @@
 
 <ng-container *ngIf="plantListings$ | async as plantListings">
     <div *ngFor="let plantListing of plantListings">
-        {{plantListing.plantName}}
+        Plant Name: 
+        {{ plantListing.plantName }}
     </div>
 </ng-container>

@@ -11,6 +11,7 @@ export class RestService {
   constructor() { }
 
   public getPlantListings(): Observable<PlantListing[]> {
+    console.log('plant listings: ',PLANT_LISTINGS);
     return of(PLANT_LISTINGS);
   }
 }

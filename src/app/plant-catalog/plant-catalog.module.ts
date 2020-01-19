@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlantCatalogComponent } from './plant-catalog/plant-catalog.component';
 import { PlantCatalogRoutingModule } from './plant-catalog-routing.module';
+import { PlantListingTableComponent } from './plant-listing-table/plant-listing-table.component';
 
 
 
 @NgModule({
-  declarations: [PlantCatalogComponent],
+  declarations: [PlantCatalogComponent, PlantListingTableComponent],
   imports: [
     CommonModule,
     PlantCatalogRoutingModule
