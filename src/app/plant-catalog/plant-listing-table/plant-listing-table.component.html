@@ -1,0 +1,7 @@
+<p>plant-listing-table works!</p>
+
+<ng-container *ngIf="plantListings$ | async as plantListings">
+    <div *ngFor="let plantListing of plantListings">
+        {{plantListing.plantName}}
+    </div>
+</ng-container>
