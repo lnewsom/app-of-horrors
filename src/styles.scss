@@ -1,2 +1,8 @@
 @import './colors.scss';
 @import './text-styles.scss';
+
+body {
+    margin: 0;
+    width: 100%;
+    background-color: $green;
+}

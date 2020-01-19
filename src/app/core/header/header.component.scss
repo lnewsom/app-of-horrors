@@ -1,0 +1,25 @@
+@import '../../../text-styles.scss';
+@import '../../../colors.scss';
+
+.header {
+    font-size: $text-title;
+    font-family: $title-font;
+    color: $red-med-dark;
+    background-color: $green-med-light;
+    padding: 10px;
+    text-align: center;
+}
+
+body {
+    background-color: #333;
+    font-family: $title-font;
+    font-size: 18px;
+  }
+  
+  path {
+    fill: transparent;
+  }
+  
+  text {
+    fill: #FF9800;
+  }

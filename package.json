@@ -20,9 +20,11 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "@types/jest": "^24.9.0",
+    "bootstrap": "^4.4.1",
     "jest": "^24.9.0",
     "jest-mock": "^24.9.0",
     "jest-preset-angular": "^8.0.0",
+    "jquery": "^3.4.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
