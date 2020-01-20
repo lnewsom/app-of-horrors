@@ -12,6 +12,7 @@ export class PlantListingTableComponent implements OnInit {
   public plantListings$: Observable<PlantListing[]>;
   @Output() selectedPlant:EventEmitter<PlantListing> = new EventEmitter<PlantListing>();
   @Input() plantType: string;
+  @Input() user: any;
 
   public constructor(
     private restService: RestService
