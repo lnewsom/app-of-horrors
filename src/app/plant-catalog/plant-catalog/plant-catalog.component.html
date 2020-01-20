@@ -1,2 +1,2 @@
-<app-selected-plant></app-selected-plant>
-<app-plant-listing-table></app-plant-listing-table>
+<app-selected-plant [selectedPlant]="selectedPlant"></app-selected-plant>
+<app-plant-listing-table (selectedPlant)="setSelectedPlant($event)"></app-plant-listing-table>

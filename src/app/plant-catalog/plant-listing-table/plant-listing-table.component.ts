@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RestService } from 'src/app/core/services/rest.service';
 import { Observable } from 'rxjs';
 import { PlantListing } from 'src/app/core/models/plant-listing';
@@ -10,6 +10,7 @@ import { PlantListing } from 'src/app/core/models/plant-listing';
 })
 export class PlantListingTableComponent implements OnInit {
   public plantListings$: Observable<PlantListing[]>;
+  @Output() selectedPlant:EventEmitter<PlantListing> = new EventEmitter<PlantListing>();
 
   public constructor(
     private restService: RestService
@@ -18,5 +19,9 @@ export class PlantListingTableComponent implements OnInit {
   public ngOnInit(): void {
     console.log("plant Listings init");
     this.plantListings$ = this.restService.getPlantListings();
+  }
+
+  public selectPlant(selectedPlant: PlantListing) {
+    this.selectedPlant.emit(selectedPlant);
   }
 }

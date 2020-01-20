@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { PlantListing } from 'src/app/core/models/plant-listing';
 
 @Component({
   selector: 'app-selected-plant',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./selected-plant.component.scss']
 })
 export class SelectedPlantComponent implements OnInit {
+  @Input() selectedPlant: PlantListing;
 
   constructor() { }
 

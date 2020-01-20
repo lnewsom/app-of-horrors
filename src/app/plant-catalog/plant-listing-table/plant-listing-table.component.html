@@ -1,6 +1,10 @@
 <ng-container *ngIf="plantListings$ | async as plantListings">
-    <div *ngFor="let plantListing of plantListings">
-        Plant Name: 
-        {{ plantListing.plantName }}
+    <div class="card m-2" *ngFor="let plantListing of plantListings">
+        <div class="card-body">
+            <div class="row justify-content-between">
+                <div class="btn btn-primary col-2" (click)="selectPlant(plantListing)">Select</div>
+                <div class="card-text col-10">{{ plantListing.plantName }} - <i>{{ plantListing.speciesName }}</i></div>
+            </div>
+        </div>
     </div>
 </ng-container>

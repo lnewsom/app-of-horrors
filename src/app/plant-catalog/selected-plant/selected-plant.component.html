@@ -1,3 +1,18 @@
 <div id="selected-plant">
-    <p>selected-plant works!</p>
+    <div class="card m-2" *ngIf="selectedPlant">
+        <div class="card-body">
+            <div class="row justify-content-between">
+                <div class="card-title col-6">Plant Name:</div>
+                <div class="card-text col-6">{{ selectedPlant.plantName }} - <i>{{ selectedPlant.speciesName }}</i></div>
+            </div>
+            <div class="row justify-content-between">
+                <div class="card-title col-6">Description:</div>
+                <div class="card-text col-6">{{ selectedPlant.description }}</div>
+            </div>
+            <div class="row justify-content-between">
+                <div class="card-title col-6">Price:</div>
+                <div class="card-text col-6">{{ selectedPlant.price }}</div>
+            </div>
+        </div>
+    </div>
 </div>
