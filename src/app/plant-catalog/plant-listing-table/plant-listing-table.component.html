@@ -1,10 +1,13 @@
 <ng-container *ngIf="plantListings$ | async as plantListings">
-    <div class="card m-2" *ngFor="let plantListing of plantListings">
-        <div class="card-body">
-            <div class="row justify-content-between">
-                <div class="btn btn-primary col-2" (click)="selectPlant(plantListing)">Select</div>
-                <div class="card-text col-10">{{ plantListing.plantName }} - <i>{{ plantListing.speciesName }}</i></div>
+    <h3>{{plantType}} Plants</h3>
+    <ng-container *ngFor="let plantListing of plantListings">
+        <div class="card m-2" *ngIf="plantListing.category.toLowerCase() === plantType.toLowerCase()">
+            <div class="card-body">
+                <div class="row justify-content-between">
+                    <div class="btn btn-primary col-2" (click)="selectPlant(plantListing)">Select</div>
+                    <div class="card-text col-10">{{ plantListing.plantName }} - <i>{{ plantListing.speciesName }}</i></div>
+                </div>
             </div>
         </div>
-    </div>
+    </ng-container>
 </ng-container>

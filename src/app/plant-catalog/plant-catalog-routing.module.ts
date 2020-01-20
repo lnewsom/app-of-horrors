@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PlantCatalogComponent } from './plant-catalog/plant-catalog.component';
 
 const routes: Routes = [
+    { path: ':plantType', component: PlantCatalogComponent},
     { path: '**', component: PlantCatalogComponent}
 ];
 

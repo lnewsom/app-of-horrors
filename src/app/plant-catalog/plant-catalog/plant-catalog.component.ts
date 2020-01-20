@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlantListing } from 'src/app/core/models/plant-listing';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-plant-catalog',
@@ -8,10 +9,14 @@ import { PlantListing } from 'src/app/core/models/plant-listing';
 })
 export class PlantCatalogComponent implements OnInit {
   public selectedPlant: PlantListing;
+  public plantType: string;
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe((params) => {
+      this.plantType = params.plantType;
+    });
   }
 
   public setSelectedPlant(plantListing: PlantListing): void {
