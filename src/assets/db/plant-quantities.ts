@@ -1,42 +1,42 @@
-export const PLANT_QUANTITIES: any[] = [
+export const PLANT_QUANTITIES: { plantId: number, quantity: number}[] = [
     {
-        plantID: 1,
+        plantId: 1,
         quantity: 23
     },
     {
-        plantID: 2,
+        plantId: 2,
         quantity: 1
     },
     {
-        plantID: 3,
+        plantId: 3,
         quantity: 60
     },
     {
-        plantID: 4,
+        plantId: 4,
         quantity: 10
     },
     {
-        plantID: 5,
+        plantId: 5,
         quantity: 0
     },
     {
-        plantID: 6,
+        plantId: 6,
         quantity: 0
     },
     {
-        plantID: 7,
+        plantId: 7,
         quantity: 23
     },
     {
-        plantID: 8,
+        plantId: 8,
         quantity: 25
     },
     {
-        plantID: 9,
+        plantId: 9,
         quantity: 5
     },
     {
-        plantID: 10,
+        plantId: 10,
         quantity: 0
     }
 ];

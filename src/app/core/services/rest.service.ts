@@ -4,7 +4,7 @@ import { PlantListing } from '../models/plant-listing';
 import { PLANT_LISTINGS } from '../../../assets/db/plant-listings';
 import { Customer } from '../models/customer';
 import { CUSTOMERS } from '../../../assets/db/customers';
-import { PLANT_QUANTITIES } from 'src/assets/db/plant-quantities';
+import { PLANT_QUANTITIES } from '../../../assets/db/plant-quantities';
 
 @Injectable({
   providedIn: 'root'

@@ -1,23 +1,17 @@
 import { Injectable } from '@angular/core';
-import { RestService } from './rest.service';
-import { map } from 'rxjs/operators';
+import { PlantListing } from '../models/plant-listing';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlantQuantityService {
-
-  constructor(private restService: RestService) { }
-
-  public getQuantityById(plantId: number): number {
-    let listingQuantity: number = 0;
-    this.restService.getPlantQuantities().pipe(
-      map((quantities: {plantId: number, quantity: number}[]) => {
-        const listing = quantities.find((listing) => listing.plantId === plantId)
-        return listing.quantity
-      })
-    ).subscribe((quantity) => listingQuantity = quantity);
-
-    return listingQuantity;
+  public mapQuantities(listings: PlantListing[], quantities: {plantId: number, quantity: number}[]): PlantListing[] {
+    return listings.map((listing) => {
+      const listingQuantity = quantities.find((quantity) => quantity.plantId === listing.plantId);
+      return ({
+        ...listing,
+        quantity: listingQuantity.quantity
+      });
+    })
   }
 }
