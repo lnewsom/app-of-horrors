@@ -6,5 +6,5 @@ export class PlantListing {
     public imageUrl: string;
     public category: string;
     public price: number;
-    public quantity: number;
+    public quantity?: number;
 }

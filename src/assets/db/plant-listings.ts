@@ -10,8 +10,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
              salivation, and burning of throat and mouth. Ingesting the berries can also cause cardiac arrest and death.`,
             imageUrl: '',
             category: 'poisonous',
-            price: 26.99,
-            quantity: 0
+            price: 26.99
         },
         {
             plantId: 2,
@@ -22,8 +21,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             those who survive are often afflicted with amnesia or lasting tremors.`,
             imageUrl: '',
             category: 'poisonous',
-            price: 12.99,
-            quantity: 0
+            price: 12.99
         },
         {
             plantId: 3,
@@ -33,8 +31,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             the involuntary muscles of the body, including the heart. Even physical contact with the leaves may cause skin irritation.`,
             imageUrl: '',
             category: 'poisonous',
-            price: 12.99,
-            quantity: 0
+            price: 12.99
         },
         {
             plantId: 4,
@@ -46,8 +43,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             simply drinking the milk of a cow who had grazed on the plant. `,
             imageUrl: '',
             category: 'poisonous',
-            price: 12.99,
-            quantity: 0
+            price: 12.99
         },
         {
             plantId: 5,
@@ -57,8 +53,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             the synthesis of proteins within cells and can cause severe vomiting, diarrhea, seizures, and even death.`,
             imageUrl: '',
             category: 'poisonous',
-            price: 12.99,
-            quantity: 0
+            price: 12.99
         },
         {
             plantId: 6,
@@ -69,8 +64,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             intact, seeds that are scratched, broken, or chewed can be lethal.`,
             imageUrl: '',
             category: 'poisonous',
-            price: 12.99,
-            quantity: 0
+            price: 12.99
         },
         {
             plantId: 7,
@@ -81,8 +75,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             coma, and death, and contact with the leaves and sap is known to be a skin irritant to some people.`,
             imageUrl: '',
             category: 'poisonous',
-            price: 12.99,
-            quantity: 0
+            price: 12.99
         },
         {
             plantId: 8,
@@ -91,8 +84,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             description: '',
             imageUrl: '',
             category: 'carniverous',
-            price: 12.99,
-            quantity: 0
+            price: 12.99
         },
         {
             plantId: 9,
@@ -101,8 +93,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             description: '',
             imageUrl: '',
             category: 'carniverous',
-            price: 12.99,
-            quantity: 0
+            price: 12.99
         },
         {
             plantId: 10,
@@ -111,7 +102,6 @@ export const PLANT_LISTINGS: PlantListing[] = [
             description: 'The strap-like leaves are covered in brightly coloured tentacles which secrete a sticky mucilage that traps arthropods. ',
             imageUrl: '',
             category: 'carniverous',
-            price: 12.99,
-            quantity: 0
+            price: 12.99
         }
     ];

@@ -1,6 +1,6 @@
 <ng-container *ngIf="plantListings$ | async as plantListings">
     <div class="text-light"><i>Welcome back {{ user.firstName}}!</i></div>
-    <h3>{{plantType}} Plants</h3>
+    <h3>Shop {{plantType}} plants</h3>
     <ng-container *ngFor="let plantListing of plantListings">
         <div class="card m-2" *ngIf="plantListing.category.toLowerCase() === plantType.toLowerCase()">
             <div class="card-body">
