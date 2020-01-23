@@ -3,7 +3,7 @@ import { RestService } from 'src/app/core/services/rest.service';
 import { Observable, zip } from 'rxjs';
 import { PlantListing } from 'src/app/core/models/plant-listing';
 import { PlantQuantityService } from 'src/app/core/services/plant-quantity.service';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-plant-listing-table',
@@ -29,8 +29,7 @@ export class PlantListingTableComponent implements OnInit {
         const quantities: { plantId: number, quantity: number }[] = response[1];
 
         return this.plantQuantityService.mapQuantities(listings, quantities);
-      }),
-      tap(console.log)
+      })
     );
   }
 

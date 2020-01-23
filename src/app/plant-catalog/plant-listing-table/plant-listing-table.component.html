@@ -1,11 +1,11 @@
-<ng-container *ngIf="plantListings$ | async as plantListings">
-    <div class="text-light"><i>Welcome back {{ user.firstName}}!</i></div>
-    <h3>Shop {{plantType}} plants</h3>
+<ng-container class="row justify-content-center" *ngIf="plantListings$ | async as plantListings">
+    <div class="text-light text-center"><i>Welcome back {{ user.firstName}}!</i></div>
+    <h3 class="text-center">Shop {{plantType}} plants</h3>
     <ng-container *ngFor="let plantListing of plantListings">
         <div class="card m-2" *ngIf="plantListing.category.toLowerCase() === plantType.toLowerCase()">
             <div class="card-body">
                 <div class="row justify-content-between">
-                    <div class="btn btn-primary col-2" (click)="selectPlant(plantListing)">Select</div>
+                    <div class="btn btn-sm btn-primary col-2" (click)="selectPlant(plantListing)">Select</div>
                     <div class="card-text col-10">{{ plantListing.plantName }} - <i>{{ plantListing.speciesName }}</i></div>
                     <div *ngIf="plantListing.quantity === 0" class="text-danger">OUT OF STOCK</div>
                 </div>
