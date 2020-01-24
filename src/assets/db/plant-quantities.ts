@@ -12,20 +12,12 @@ export const PLANT_QUANTITIES: { plantId: number, quantity: number}[] = [
         quantity: 60
     },
     {
-        plantId: 4,
-        quantity: 10
-    },
-    {
         plantId: 5,
         quantity: 0
     },
     {
         plantId: 6,
         quantity: 0
-    },
-    {
-        plantId: 7,
-        quantity: 23
     },
     {
         plantId: 8,

@@ -16,7 +16,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             plantId: 2,
             plantName: 'Water Hemlock',
             speciesName: 'Cicuta maculata',
-            description: `Water hemlock is the most violently poisonous plant in North america. It is infused with deadly cicutoxin, especially in its roots, and will rapidly generate potentially 
+            description: `Water Hemlock is the most violently poisonous plant in North America. It is infused with deadly cicutoxin, especially in its roots, and will rapidly generate potentially 
             fatal symptoms in anyone unlucky enough to eat it. Painful convulsions, abdominal cramps, nausea, and death are common, and 
             those who survive are often afflicted with amnesia or lasting tremors.`,
             imageUrl: 'assets/plantImages/water_hemlock.jpg',
@@ -30,18 +30,6 @@ export const PLANT_LISTINGS: PlantListing[] = [
             description: `Nightshade contains atropine and scopolamine in its stems, leaves, berries, and roots, and causes paralysis in 
             the involuntary muscles of the body, including the heart. Even physical contact with the leaves may cause skin irritation.`,
             imageUrl: 'assets/plantImages/deadly_nightshade.jpg',
-            category: 'poisonous',
-            price: 12.99
-        },
-        {
-            plantId: 4,
-            plantName: 'White Snakeroot',
-            speciesName: 'Ageratina altissima',
-            description: `An innocuous plant, white snakeroot was responsible for the death of Abraham Lincoln’s mother, 
-            Nancy Hanks. White snakeroot is a North American herb with flat-topped clusters of small white flowers and contains a toxic  
-            alcohol known as trematol. Unlike those who have died from directly ingesting deadly plants, poor Nancy Hanks was poisoned by 
-            simply drinking the milk of a cow who had grazed on the plant. `,
-            imageUrl: 'assets/plantImages/white_snakeroot.jpg',
             category: 'poisonous',
             price: 12.99
         },
@@ -63,17 +51,6 @@ export const PLANT_LISTINGS: PlantListing[] = [
             . Rosary peas are native to tropical areas and are often used in jewelry and prayer rosaries. While the seeds are not poisonous if 
             intact, seeds that are scratched, broken, or chewed can be lethal.`,
             imageUrl: 'assets/plantImages/rosary_pea.jpg',
-            category: 'poisonous',
-            price: 12.99
-        },
-        {
-            plantId: 7,
-            plantName: 'Oleander',
-            speciesName: 'Nerium oleander',
-            description: `Though commonly grown as a hedge and ornamental, do not let this beauty fool you, all parts of the oleander plant are deadly and contain lethal  
-            cardiac glycosides known as oleandrin and neriine. If eaten, oleander can cause vomiting, diarrhea, erratic pulse, seizures, 
-            coma, and death, and contact with the leaves and sap is known to be a skin irritant to some people.`,
-            imageUrl: 'assets/plantImages/oleander.jpg',
             category: 'poisonous',
             price: 12.99
         },

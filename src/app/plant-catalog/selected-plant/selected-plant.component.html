@@ -1,17 +1,13 @@
 <div id="selected-plant" class="m-5">
-    <div class="card m-2" *ngIf="selectedPlant">
-        <div class="card-body">
-            <div class="row justify-content-center m-2">
-                <img src="{{ selectedPlant.imageUrl }}"/>
+    <div class="card" *ngIf="selectedPlant">
+        <div class="card-body row">
+            <div class="m-2 col-4">
+                <img width="250px" src="{{ selectedPlant.imageUrl }}"/>
             </div>
-            <div class="row justify-content-between">
-                <h4 class="card-text col-12">{{ selectedPlant.plantName }} - <i>{{ selectedPlant.speciesName }}</i></h4>
-            </div>
-            <div class="row justify-content-between">
+            <div class="col-7 text-left">
+                <h5 class="card-text col-12 text-success">{{ selectedPlant.plantName }} - <i>{{ selectedPlant.speciesName }}</i></h5>
                 <div class="card-text col-12">{{ selectedPlant.description }}</div>
-            </div>
-            <div class="row justify-content-between">
-                <div class="card-text col-12">{{ selectedPlant.price }}</div>
+                <h3 class="card-text col-12 text-success">{{ selectedPlant.price }}</h3>
             </div>
         </div>
     </div>
