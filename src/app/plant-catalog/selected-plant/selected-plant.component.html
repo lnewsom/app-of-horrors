@@ -8,6 +8,7 @@
                 <h5 class="card-text col-12 text-success">{{ selectedPlant.plantName }} - <i>{{ selectedPlant.speciesName }}</i></h5>
                 <div class="card-text col-12">{{ selectedPlant.description }}</div>
                 <h3 class="card-text col-12 text-success">{{ selectedPlant.price }}</h3>
+                <div class="text-danger card-text col-12" *ngIf="selectedPlant.quantity === 0">OUT OF STOCK</div>
             </div>
         </div>
     </div>

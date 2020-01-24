@@ -1,8 +1,8 @@
 <div class="row justify-content-around">
-    <div class="col-4">
+    <div class="col-4 align-middle">
         <app-plant-listing-table (selectedPlant)="setSelectedPlant($event)" [plantType]="plantType" [user]="user"></app-plant-listing-table>
     </div>
-    <div class="col-8 selected-plant">
+    <div class="col-8 align-middle">
         <app-selected-plant [selectedPlant]="selectedPlant"></app-selected-plant>
     </div>
 </div>
