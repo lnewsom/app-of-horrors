@@ -4,6 +4,7 @@ import { Observable, zip } from 'rxjs';
 import { PlantListing } from 'src/app/core/models/plant-listing';
 import { PlantQuantityService } from 'src/app/core/services/plant-quantity.service';
 import { map } from 'rxjs/operators';
+import { User } from 'src/app/core/models/user';
 
 @Component({
   selector: 'app-plant-listing-table',
@@ -14,7 +15,7 @@ export class PlantListingTableComponent implements OnInit {
   public plantListings$: Observable<any>;
   @Output() selectedPlant:EventEmitter<PlantListing> = new EventEmitter<PlantListing>();
   @Input() plantType: string;
-  @Input() user: any;
+  @Input() user: User;
 
   public constructor(
     private restService: RestService,
