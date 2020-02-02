@@ -4,8 +4,6 @@ import { HeaderComponent } from './header/header.component';
 import { CoreComponent } from './core/core.component';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [HeaderComponent, CoreComponent],
   imports: [

@@ -5,8 +5,6 @@ import { PlantCatalogRoutingModule } from './plant-catalog-routing.module';
 import { PlantListingTableComponent } from './plant-listing-table/plant-listing-table.component';
 import { SelectedPlantComponent } from './selected-plant/selected-plant.component';
 
-
-
 @NgModule({
   declarations: [PlantCatalogComponent, PlantListingTableComponent, SelectedPlantComponent],
   imports: [

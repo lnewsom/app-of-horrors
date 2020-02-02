@@ -1,4 +1,4 @@
-<div id="selected-plant" class="m-5">
+<div id="selected-plant" class="m-2">
     <div class="card" *ngIf="selectedPlant">
         <div class="card-body row">
             <div class="m-2 col-4">
@@ -7,7 +7,7 @@
             <div class="col-7 text-left">
                 <h5 class="card-text col-12 text-success">{{ selectedPlant.plantName }} - <i>{{ selectedPlant.speciesName }}</i></h5>
                 <div class="card-text col-12">{{ selectedPlant.description }}</div>
-                <h3 class="card-text col-12 text-success">{{ selectedPlant.price }}</h3>
+                <h3 class="card-text col-12 text-success">${{ selectedPlant.price }}</h3>
                 <div class="text-danger card-text col-12" *ngIf="selectedPlant.quantity === 0">OUT OF STOCK</div>
             </div>
         </div>

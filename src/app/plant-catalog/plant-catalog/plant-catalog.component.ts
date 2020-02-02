@@ -5,15 +5,17 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
 
 @Component({
   selector: 'app-plant-catalog',
-  templateUrl: './plant-catalog.component.html',
-  styleUrls: ['./plant-catalog.component.scss']
+  templateUrl: './plant-catalog.component.html'
 })
 export class PlantCatalogComponent implements OnInit {
   public selectedPlant: PlantListing;
   public plantType: string;
   public user: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private authenticationService: AuthenticationService) { }
+  constructor(
+    private activatedRoute: ActivatedRoute, 
+    private authenticationService: AuthenticationService
+  ) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params) => {

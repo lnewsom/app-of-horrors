@@ -7,6 +7,6 @@ import { User } from '../core/models/user';
 })
 export class AuthenticationService {
   public getUser(): Observable<User> {
-    return of(new User('skrelbourn', 'seymour', 'krelbourn', 2));
+    return of(new User('oscrivello', 'Orin', 'Scrivello', 2));
   }
 }

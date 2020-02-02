@@ -1,8 +1,21 @@
 @import '../../../colors.scss';
 @import '../../../text-styles.scss';
 
-.btn {
-    // max-width: 100px;
+@import '../../../colors.scss';
+
+.plant-listing-table {
+    margin: 5px;
+    text-align: center;
+    padding: 10px;
+    background-color: $green-med-dark;
+    border-radius: 10px;
+    border: solid 3px $black;
+    min-height: 400px;
+
+    .btn {
+        width: 90%;
+        margin: auto;
+    }
 }
 
 .card-text {

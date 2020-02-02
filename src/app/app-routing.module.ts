@@ -13,7 +13,7 @@ const routes: Routes = [
       }
     ]
   },
- // {    path: '**', component: CoreComponent }
+ {    path: '**', component: CoreComponent }
 ];
 
 @NgModule({
