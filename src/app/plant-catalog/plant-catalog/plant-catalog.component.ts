@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PlantListing } from 'src/app/core/models/plant-listing';
+import { PlantListing } from '../../core/models/plant-listing';
 import { ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from 'src/app/authentication/authentication.service';
+import { AuthenticationService } from '../../authentication/authentication.service';
 
 @Component({
   selector: 'app-plant-catalog',

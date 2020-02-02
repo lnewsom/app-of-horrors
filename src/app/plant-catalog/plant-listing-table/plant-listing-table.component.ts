@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { RestService } from 'src/app/core/services/rest.service';
+import { RestService } from '../../core/services/rest.service';
 import { Observable, zip } from 'rxjs';
-import { PlantListing } from 'src/app/core/models/plant-listing';
-import { PlantQuantityService } from 'src/app/core/services/plant-quantity.service';
+import { PlantListing } from '../../core/models/plant-listing';
+import { PlantQuantityService } from '../../core/services/plant-quantity.service';
 import { map } from 'rxjs/operators';
-import { User } from 'src/app/core/models/user';
+import { User } from '../../core/models/user';
 
 @Component({
   selector: 'app-plant-listing-table',
