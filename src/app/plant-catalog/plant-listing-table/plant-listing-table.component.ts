@@ -14,7 +14,6 @@ import { SelectedPlantService } from 'src/app/core/services/selected-plant.servi
 })
 export class PlantListingTableComponent implements OnInit {
   public plantListings$: Observable<any>;
-  @Output() selectedPlant:EventEmitter<PlantListing> = new EventEmitter<PlantListing>(); //to rxjs service
   @Input() plantType: string; // route param
   @Input() user: User; // from parent
 
