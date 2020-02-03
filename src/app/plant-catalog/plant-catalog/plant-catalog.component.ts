@@ -24,8 +24,4 @@ export class PlantCatalogComponent implements OnInit {
 
     this.authenticationService.getUser().subscribe((user) => this.user = user);
   }
-
-  public setSelectedPlant(plantListing: PlantListing): void {
-    this.selectedPlant = plantListing;
-  }
 }
