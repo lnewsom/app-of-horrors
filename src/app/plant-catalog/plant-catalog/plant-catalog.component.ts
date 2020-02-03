@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PlantListing } from '../../core/models/plant-listing';
-import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../../authentication/authentication.service';
 
 @Component({
@@ -12,16 +11,16 @@ export class PlantCatalogComponent implements OnInit {
   public plantType: string;
   public user: any;
 
-  constructor(
-    private activatedRoute: ActivatedRoute, 
+  public constructor(
     private authenticationService: AuthenticationService
   ) { }
 
-  ngOnInit() {
-    this.activatedRoute.params.subscribe((params) => {
-      this.plantType = params.plantType;
-    });
-
+  public ngOnInit(): void {
     this.authenticationService.getUser().subscribe((user) => this.user = user);
   }
+
+  public setPlantType(plantType: string): void {
+    this.plantType = plantType;
+  }
+
 }

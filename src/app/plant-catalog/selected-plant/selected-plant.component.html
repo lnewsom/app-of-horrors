@@ -1,6 +1,7 @@
 <div id="selected-plant" class="m-2">
     <div class="card" *ngIf="selectedPlant$ | async as selectedPlant">
         <div class="card-body row">
+            <div class="col-12 selected-title text-center">{{ plantType === 'all' ? selectedPlant.category : plantType }}</div>
             <div class="m-2 col-4">
                 <img width="250px" src="{{ selectedPlant.imageUrl }}"/>
             </div>

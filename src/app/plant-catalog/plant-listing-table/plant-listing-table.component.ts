@@ -6,6 +6,7 @@ import { PlantQuantityService } from '../../core/services/plant-quantity.service
 import { map } from 'rxjs/operators';
 import { User } from '../../core/models/user';
 import { SelectedPlantService } from 'src/app/core/services/selected-plant.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-plant-listing-table',
@@ -14,16 +15,23 @@ import { SelectedPlantService } from 'src/app/core/services/selected-plant.servi
 })
 export class PlantListingTableComponent implements OnInit {
   public plantListings$: Observable<any>;
-  @Input() plantType: string; // route param
+  public plantType: string; // route param
+  @Output() emitPlantType: EventEmitter<string> = new EventEmitter<string>();
   @Input() user: User; // from parent
 
   public constructor(
+    private activatedRoute: ActivatedRoute, 
     private restService: RestService,
     private plantQuantityService: PlantQuantityService,
     private selectedPlantService: SelectedPlantService
   ) { }
 
   public ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
+      this.plantType = params.plantType;
+      this.emitPlantType.emit(params.plantType.toLowerCase());
+    });
+
     this.plantListings$ = zip(this.restService.getPlantListings(), this.restService.getPlantQuantities()) // http calls
     .pipe(
       map((response) => {

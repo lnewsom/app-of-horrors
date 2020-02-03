@@ -1,0 +1,11 @@
+@import '../../../colors.scss';
+@import '../../../text-styles.scss';
+
+.selected-title {
+    font-size: $text-sub-title;
+    font-family: $title-font;
+    color: $red-med-dark;
+    background: $yellow-med-light;
+    padding: 5px;
+    margin-bottom: 10px;
+}
