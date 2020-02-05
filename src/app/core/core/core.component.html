@@ -1,11 +1,14 @@
-<div class="w-100">
-    <app-header></app-header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-around">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link mx-4" routerLink="/shop/plants/all" (click)="clearSelectedPlant()">All Plants</a>
-            <a class="nav-item nav-link mx-4" routerLink="/shop/plants/poisonous" (click)="clearSelectedPlant()">Poisonous</a>
-            <a class="nav-item nav-link mx-4" routerLink="/shop/plants/carniverous" (click)="clearSelectedPlant()">Carniverous</a>
-        </div>
-    </nav>
+<app-header></app-header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-around">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link mx-4" routerLink="/shop/plants/all" (click)="clearSelectedPlant()">All
+            Plants</a>
+        <a class="nav-item nav-link mx-4" routerLink="/shop/plants/poisonous"
+            (click)="clearSelectedPlant()">Poisonous</a>
+        <a class="nav-item nav-link mx-4" routerLink="/shop/plants/carniverous"
+            (click)="clearSelectedPlant()">Carniverous</a>
+    </div>
+</nav>
+<div id="app-wrapper">
     <router-outlet></router-outlet>
 </div>

@@ -1,8 +1,8 @@
 <div class="plant-listing-table" *ngIf="plantListings$ | async as plantListings">
     <ng-container *ngIf="plantType">
-        <div class="btn btn-success m-2 col-12">
-            <div class="text-light text-center"><i>Welcome back {{ user.firstName}}!</i></div>
-            <h3 class="text-center text-warning">Shop {{plantType}} plants</h3>
+        <div class="btn btn-title m-2 col-12">
+            <div class="text-danger text-center"><i>Welcome back {{ user.firstName}}!</i></div>
+            <h3 class="text-center text-dark">Shop {{plantType}} plants</h3>
         </div>
         <ng-container *ngFor="let plantListing of plantListings row">
             <div class="btn btn-light m-2 col-12"
