@@ -1,4 +1,4 @@
-import { PlantListing } from '../../app/core/models/plant-listing';
+import { PlantListing } from 'src/app/core/models/plant-listing';
 
 export const PLANT_LISTINGS: PlantListing[] = [
         {
