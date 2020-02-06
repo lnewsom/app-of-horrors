@@ -1,25 +1,40 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Chance } from 'chance';
 
 import { PlantListingTableComponent } from './plant-listing-table.component';
+import { RestService } from 'src/app/core/services/rest.service';
+import { PlantQuantityService } from 'src/app/core/services/plant-quantity.service';
+import { SelectedPlantService } from 'src/app/core/services/selected-plant.service';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+
+const chance: Chance.Chance = new Chance();
 
 describe('PlantListingTableComponent', () => {
-  let component: PlantListingTableComponent;
-  let fixture: ComponentFixture<PlantListingTableComponent>;
+    const expectedPlantType: string = chance.string();
+    let mockActivatedRoute: ActivatedRoute;
+    let mockRestService: RestService;
+    let mockPlantQuantityService: PlantQuantityService;
+    let mockSelectedPlantService: SelectedPlantService;
+    let underTest: PlantListingTableComponent;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PlantListingTableComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(() => {
+        mockActivatedRoute = new ActivatedRoute();
+        mockActivatedRoute.params = of({ plantType: expectedPlantType });
+        mockRestService = new RestService();
+        mockPlantQuantityService = new PlantQuantityService();
+        mockSelectedPlantService = new SelectedPlantService();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PlantListingTableComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        underTest = new PlantListingTableComponent(mockActivatedRoute, mockRestService, mockPlantQuantityService, mockSelectedPlantService)
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    describe('ngOnInit', () => {
+
+        beforeEach(() => {
+            underTest.ngOnInit();
+        });
+
+        test('plantType is set to expected plantType', () => {
+            expect(underTest.plantType).toEqual(expectedPlantType);
+        });
+    });
 });
