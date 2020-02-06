@@ -16,7 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PlantListingTableComponent implements OnInit {
   public plantListings$: Observable<any>;
   public plantType: string; // route param
-  @Output() emitPlantType: EventEmitter<string> = new EventEmitter<string>();
+  @Output() emitPlantType: EventEmitter<string> = new EventEmitter<string>();// output to sibling
   @Input() user: User; // from parent
 
   public constructor(
@@ -44,6 +44,6 @@ export class PlantListingTableComponent implements OnInit {
   }
 
   public selectPlant(selectedPlant: PlantListing) {
-    this.selectedPlantService.selectPlant(selectedPlant);
+    this.selectedPlantService.selectPlant(selectedPlant);// rxjs service
   }
 }
