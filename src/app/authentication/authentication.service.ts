@@ -3,10 +3,10 @@ import { Observable, of } from 'rxjs';
 import { User } from '../core/models/user';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthenticationService {
-  public getUser(): Observable<User> {
-    return of(new User('oscrivello', 'Orin', 'Scrivello', 2));
-  }
+    public getUser(): Observable<User> {
+        return of(new User('oscrivello', 'Orin', 'Scrivello', 2));
+    }
 }

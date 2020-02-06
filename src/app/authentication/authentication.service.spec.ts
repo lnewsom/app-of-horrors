@@ -1,12 +1,20 @@
-import { TestBed } from '@angular/core/testing';
-
 import { AuthenticationService } from './authentication.service';
+import { User } from '../core/models/user';
 
 describe('AuthenticationService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+    let underTest: AuthenticationService;
+    const expectedUser: User = new User('oscrivello', 'Orin', 'Scrivello', 2);
 
-  it('should be created', () => {
-    const service: AuthenticationService = TestBed.get(AuthenticationService);
-    expect(service).toBeTruthy();
-  });
+    beforeEach(() => {
+        underTest = new AuthenticationService();
+    });
+
+    describe('getUser', () => {
+        test('returns expected User', (done) => {
+            underTest.getUser().subscribe((user) => {
+                expect(user).toEqual(expectedUser);
+                done();
+            });
+        });
+    });
 });
