@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlantListing } from '../../core/models/plant-listing';
 import { AuthenticationService } from '../../authentication/authentication.service';
+import { User } from 'src/app/core/models/user';
 
 @Component({
   selector: 'app-plant-catalog',
@@ -9,7 +10,7 @@ import { AuthenticationService } from '../../authentication/authentication.servi
 export class PlantCatalogComponent implements OnInit {
   public selectedPlant: PlantListing;
   public plantType: string;
-  public user: any;
+  public user: User;
 
   public constructor(
     private authenticationService: AuthenticationService
