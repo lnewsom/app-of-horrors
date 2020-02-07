@@ -1,25 +1,33 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SelectedPlantComponent } from './selected-plant.component';
+import { SelectedPlantService } from 'src/app/core/services/selected-plant.service';
+import { PlantListing } from 'src/app/core/models/plant-listing';
+import { of } from 'rxjs';
+import { generateRandomPlantListing } from 'src/test-utils/model-generators';
 
 describe('SelectedPlantComponent', () => {
-  let component: SelectedPlantComponent;
-  let fixture: ComponentFixture<SelectedPlantComponent>;
+    let underTest: SelectedPlantComponent;
+    let mockSelectedPlantService: SelectedPlantService;
+    let expectedSelectedPlantListing: PlantListing;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SelectedPlantComponent ]
+    beforeEach(() => {
+        expectedSelectedPlantListing = generateRandomPlantListing();
+
+        mockSelectedPlantService = new SelectedPlantService();
+        mockSelectedPlantService.getSelectedPlant = jest.fn(() => of(expectedSelectedPlantListing));
+
+        underTest = new SelectedPlantComponent(mockSelectedPlantService);
+    });
+
+    describe('ngOnInit', () => {
+        beforeEach(() => {
+            underTest.ngOnInit();
+        });
+
+        test('selectedPlantListing is set to expectedSelectedPlantListing', () => {
+            underTest.selectedPlant$.subscribe((actualPlantListing) => {
+                expect(actualPlantListing).toEqual(expectedSelectedPlantListing);
+            });
+        });
     })
-    .compileComponents();
-  }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SelectedPlantComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

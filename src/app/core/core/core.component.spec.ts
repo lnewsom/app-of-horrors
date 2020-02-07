@@ -1,25 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CoreComponent } from './core.component';
+import { SelectedPlantService } from '../services/selected-plant.service';
+
+jest.mock('../services/selected-plant.service');
 
 describe('CoreComponent', () => {
-  let component: CoreComponent;
-  let fixture: ComponentFixture<CoreComponent>;
+    let underTest: CoreComponent;
+    let mockSelectedPlantService: SelectedPlantService;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CoreComponent ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(() => {
+        mockSelectedPlantService = new SelectedPlantService();
+        mockSelectedPlantService.clearSelectedPlant = jest.fn();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CoreComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        underTest = new CoreComponent(mockSelectedPlantService);
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    describe('clearSelectedPlant', () => {
+        test('calls selectedPlantService.clearSelectedPlant', () => {
+            underTest.clearSelectedPlant();
+
+            expect(mockSelectedPlantService.clearSelectedPlant).toHaveBeenCalledTimes(1);
+        });
+    });
 });
