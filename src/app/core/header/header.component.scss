@@ -2,26 +2,26 @@
 @import '../../../colors.scss';
 
 .header {
-  background-image: url("../../../assets/plantImages/plants.jpg");
-  text-align: center;
-  height: 150px;
-  padding-top: 25px;
+    background-image: url("../../../assets/plantImages/plants.jpg");
+    text-align: center;
+    height: 150px;
+    padding-top: 25px;
 
-  div {
-    width: 50%;
-    background-color: $green-transparent;
-    margin: auto;
-    
-    h1 {      
-      font-size: $text-title;
-      font-family: $title-font;
-      color: $black;
-    }
+    div {
+        width: 50%;
+        background-color: $green-transparent;
+        margin: auto;
+        
+        h1 {      
+            font-size: $text-title;
+            font-family: $title-font;
+            color: $black;
+        }
 
-    h2 {
-      font-size: $text-sub-title;
-      font-family: $title-font;
-      color: $red-med-dark;
+        h2 {
+            font-size: $text-sub-title;
+            font-family: $title-font;
+            color: $red-med-dark;
+        }
     }
-  }
 }

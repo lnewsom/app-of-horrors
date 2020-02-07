@@ -3,7 +3,7 @@ import { Chance } from 'chance';
 
 export const chance: Chance.chance = new Chance();
 
-export const generateRandomPlantListing = (partial?: PlantListing): PlantListing => {
+export const generateRandomPlantListing: Function = (partial?: PlantListing): PlantListing => {
     const plantListing: PlantListing = {
         plantId: chance.integer(),
         quantity: undefined,

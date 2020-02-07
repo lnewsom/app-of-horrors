@@ -21,7 +21,7 @@ describe('PlantQuantityService', () => {
 
     beforeEach(() => {
         incomingPlantListings = [
-            generateRandomPlantListing({ plantId: plantIdOne, quantity: undefined}),
+            generateRandomPlantListing({ plantId: plantIdOne, quantity: undefined }),
             generateRandomPlantListing({ plantId: plantIdTwo, quantity: undefined }),
             generateRandomPlantListing({ plantId: plantIdThree, quantity: undefined })
         ];

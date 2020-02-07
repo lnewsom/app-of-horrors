@@ -6,10 +6,10 @@ import { PlantListingTableComponent } from './plant-listing-table/plant-listing-
 import { SelectedPlantComponent } from './selected-plant/selected-plant.component';
 
 @NgModule({
-  declarations: [PlantCatalogComponent, PlantListingTableComponent, SelectedPlantComponent],
-  imports: [
-    CommonModule,
-    PlantCatalogRoutingModule
-  ]
+    declarations: [PlantCatalogComponent, PlantListingTableComponent, SelectedPlantComponent],
+    imports: [
+        CommonModule,
+        PlantCatalogRoutingModule
+    ]
 })
 export class PlantCatalogModule { }

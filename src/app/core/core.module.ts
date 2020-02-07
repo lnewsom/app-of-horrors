@@ -5,13 +5,13 @@ import { CoreComponent } from './core/core.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [HeaderComponent, CoreComponent],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  exports: [
-    CoreComponent
-  ]
+    declarations: [HeaderComponent, CoreComponent],
+    imports: [
+        CommonModule,
+        RouterModule
+    ],
+    exports: [
+        CoreComponent
+    ]
 })
 export class CoreModule { }
