@@ -65,7 +65,8 @@
         "coveragePathIgnorePatterns": [
             "/node_modules/",
             "/src/jestGlobalMocks.ts",
-            "/src/setup-jest.ts"
+            "/src/setup-jest.ts",
+            "/src/test-utils/"
         ],
           "coverageThreshold": {
             "global": {

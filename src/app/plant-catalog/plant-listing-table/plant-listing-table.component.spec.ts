@@ -1,4 +1,3 @@
-import { Chance } from 'chance';
 
 import { PlantListingTableComponent } from './plant-listing-table.component';
 import { RestService } from 'src/app/core/services/rest.service';
@@ -7,8 +6,7 @@ import { SelectedPlantService } from 'src/app/core/services/selected-plant.servi
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { PlantListing } from 'src/app/core/models/plant-listing';
-
-const chance: Chance.Chance = new Chance();
+import { chance, generateRandomPlantListing } from 'src/test-utils/model-generators';
 
 describe('PlantListingTableComponent', () => {
     const expectedPlantType: string = chance.string();
@@ -49,26 +47,8 @@ describe('PlantListingTableComponent', () => {
 
             beforeEach(() => {
                 const incomingPlantListings: PlantListing[] = [
-                    {
-                        plantId: chance.integer(),
-                        quantity: undefined,
-                        plantName: chance.string(),
-                        description: chance.string(),
-                        price: chance.floating(),
-                        speciesName: chance.string(),
-                        imageUrl: chance.string(),
-                        category: chance.string()
-                    },
-                    {
-                        plantId: chance.integer(),
-                        quantity: undefined,
-                        plantName: chance.string(),
-                        description: chance.string(),
-                        price: chance.floating(),
-                        speciesName: chance.string(),
-                        imageUrl: chance.string(),
-                        category: chance.string()
-                    }
+                    generateRandomPlantListing(),
+                    generateRandomPlantListing()
                 ];
 
                 const incomingQuantities: any[] = [
@@ -82,26 +62,8 @@ describe('PlantListingTableComponent', () => {
                     }
                 ];
                 expectedPlantListings = [
-                    {
-                        plantId: chance.integer(),
-                        quantity: chance.integer(),
-                        plantName: chance.string(),
-                        description: chance.string(),
-                        price: chance.floating(),
-                        speciesName: chance.string(),
-                        imageUrl: chance.string(),
-                        category: chance.string()
-                    },
-                    {
-                        plantId: chance.integer(),
-                        quantity: chance.integer(),
-                        plantName: chance.string(),
-                        description: chance.string(),
-                        price: chance.floating(),
-                        speciesName: chance.string(),
-                        imageUrl: chance.string(),
-                        category: chance.string()
-                    }
+                    generateRandomPlantListing({ quantity: chance.integer() }),
+                    generateRandomPlantListing({ quantity: chance.integer() })
                 ];
 
                 mockRestService.getPlantListings = jest.fn(() => of(incomingPlantListings));
@@ -126,17 +88,7 @@ describe('PlantListingTableComponent', () => {
         let expectedPlantListing: PlantListing;
 
         beforeEach(() => {
-            expectedPlantListing =                     
-            {
-                plantId: chance.integer(),
-                quantity: chance.integer(),
-                plantName: chance.string(),
-                description: chance.string(),
-                price: chance.floating(),
-                speciesName: chance.string(),
-                imageUrl: chance.string(),
-                category: chance.string()
-            };
+            expectedPlantListing = generateRandomPlantListing();
 
             mockSelectedPlantService.selectPlant = jest.fn();
 

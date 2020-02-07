@@ -2,6 +2,7 @@ import { Chance } from 'chance';
 
 import { PlantQuantityService } from './plant-quantity.service';
 import { PlantListing } from '../models/plant-listing';
+import { generateRandomPlantListing } from 'src/test-utils/model-generators';
 
 const chance: Chance.chance = new Chance();
 
@@ -20,36 +21,9 @@ describe('PlantQuantityService', () => {
 
     beforeEach(() => {
         incomingPlantListings = [
-            {
-                plantId: plantIdOne,
-                quantity: undefined,
-                plantName: chance.string(),
-                description: chance.string(),
-                price: chance.floating(),
-                speciesName: chance.string(),
-                imageUrl: chance.string(),
-                category: chance.string()
-            },
-            {
-                plantId: plantIdTwo,
-                quantity: undefined,
-                plantName: chance.string(),
-                description: chance.string(),
-                price: chance.floating(),
-                speciesName: chance.string(),
-                imageUrl: chance.string(),
-                category: chance.string()
-            },
-            {
-                plantId: plantIdThree,
-                quantity: undefined,
-                plantName: chance.string(),
-                description: chance.string(),
-                price: chance.floating(),
-                speciesName: chance.string(),
-                imageUrl: chance.string(),
-                category: chance.string()
-            }
+            generateRandomPlantListing({ plantId: plantIdOne, quantity: undefined}),
+            generateRandomPlantListing({ plantId: plantIdTwo, quantity: undefined }),
+            generateRandomPlantListing({ plantId: plantIdThree, quantity: undefined })        
         ];
 
         incomingPlantQuantities = [

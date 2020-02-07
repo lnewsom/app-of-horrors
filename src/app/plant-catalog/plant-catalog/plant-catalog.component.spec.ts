@@ -1,11 +1,8 @@
-import { Chance } from 'chance';
-
 import { PlantCatalogComponent } from './plant-catalog.component';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { User } from 'src/app/core/models/user';
 import { of } from 'rxjs';
-
-const chance: Chance.chance = new Chance();
+import { chance } from '../../../test-utils/model-generators';
 
 jest.mock('src/app/authentication/authentication.service');
 
