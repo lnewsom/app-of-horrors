@@ -6,6 +6,7 @@ import { PlantQuantityService } from 'src/app/core/services/plant-quantity.servi
 import { SelectedPlantService } from 'src/app/core/services/selected-plant.service';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { PlantListing } from 'src/app/core/models/plant-listing';
 
 const chance: Chance.Chance = new Chance();
 
@@ -23,18 +24,132 @@ describe('PlantListingTableComponent', () => {
         mockRestService = new RestService();
         mockPlantQuantityService = new PlantQuantityService();
         mockSelectedPlantService = new SelectedPlantService();
+    });
+    
+    describe('ngOnInit', () => {
+        describe('route params subscribe', () => {
+            beforeEach(() => {
+                underTest = new PlantListingTableComponent(mockActivatedRoute, mockRestService, mockPlantQuantityService, mockSelectedPlantService)
+                underTest.emitPlantType.emit = jest.fn();
+    
+                underTest.ngOnInit();
+            });
 
-        underTest = new PlantListingTableComponent(mockActivatedRoute, mockRestService, mockPlantQuantityService, mockSelectedPlantService)
+            test('plantType is set to expected plantType', () => {
+                expect(underTest.plantType).toEqual(expectedPlantType);
+            });
+    
+            test('emitPlantType emit is called with expectedPlantType', () => {
+                expect(underTest.emitPlantType.emit).toHaveBeenCalledWith(expectedPlantType.toLowerCase());
+            });
+        });
+
+        describe('plantListings$', () => {
+            let expectedPlantListings: PlantListing[];
+
+            beforeEach(() => {
+                const incomingPlantListings: PlantListing[] = [
+                    {
+                        plantId: chance.integer(),
+                        quantity: undefined,
+                        plantName: chance.string(),
+                        description: chance.string(),
+                        price: chance.floating(),
+                        speciesName: chance.string(),
+                        imageUrl: chance.string(),
+                        category: chance.string()
+                    },
+                    {
+                        plantId: chance.integer(),
+                        quantity: undefined,
+                        plantName: chance.string(),
+                        description: chance.string(),
+                        price: chance.floating(),
+                        speciesName: chance.string(),
+                        imageUrl: chance.string(),
+                        category: chance.string()
+                    }
+                ];
+
+                const incomingQuantities: any[] = [
+                    {
+                        plantId: chance.integer(),
+                        quantity: chance.integer()
+                    },
+                    {
+                        plantId: chance.integer(),
+                        quantity: chance.integer()
+                    }
+                ];
+                expectedPlantListings = [
+                    {
+                        plantId: chance.integer(),
+                        quantity: chance.integer(),
+                        plantName: chance.string(),
+                        description: chance.string(),
+                        price: chance.floating(),
+                        speciesName: chance.string(),
+                        imageUrl: chance.string(),
+                        category: chance.string()
+                    },
+                    {
+                        plantId: chance.integer(),
+                        quantity: chance.integer(),
+                        plantName: chance.string(),
+                        description: chance.string(),
+                        price: chance.floating(),
+                        speciesName: chance.string(),
+                        imageUrl: chance.string(),
+                        category: chance.string()
+                    }
+                ];
+
+                mockRestService.getPlantListings = jest.fn(() => of(incomingPlantListings));
+                mockRestService.getPlantQuantities = jest.fn(() => of(incomingQuantities));
+                mockPlantQuantityService.mapQuantities = jest.fn(() => expectedPlantListings);
+                underTest = new PlantListingTableComponent(mockActivatedRoute, mockRestService, mockPlantQuantityService, mockSelectedPlantService)
+            });
+            
+            test('plantListings$ returns expectedPlantListings', (done) => {
+                underTest.ngOnInit();
+
+                underTest.plantListings$.subscribe((plantListings) => {
+                    expect(plantListings).toEqual(expectedPlantListings);
+                    done();
+                });
+
+            });
+        });
     });
 
-    describe('ngOnInit', () => {
+    describe('selectPlant', () => {
+        let expectedPlantListing: PlantListing;
 
         beforeEach(() => {
-            underTest.ngOnInit();
+            expectedPlantListing =                     
+            {
+                plantId: chance.integer(),
+                quantity: chance.integer(),
+                plantName: chance.string(),
+                description: chance.string(),
+                price: chance.floating(),
+                speciesName: chance.string(),
+                imageUrl: chance.string(),
+                category: chance.string()
+            };
+
+            mockSelectedPlantService.selectPlant = jest.fn();
+
+            underTest = new PlantListingTableComponent(mockActivatedRoute, mockRestService, mockPlantQuantityService, mockSelectedPlantService)
         });
 
-        test('plantType is set to expected plantType', () => {
-            expect(underTest.plantType).toEqual(expectedPlantType);
+        test('selectedPlantService selectPlant is called with expected plant listing', () => {
+            underTest.selectPlant(expectedPlantListing);
+            
+            expect(mockSelectedPlantService.selectPlant).toHaveBeenCalledWith(expectedPlantListing);
         });
+
     });
+
+
 });
