@@ -5,9 +5,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 This project is a companion project to the Ng Conf 2020 workshop "Little App of Horrors: Saving the Day with NgRx"
 
 To follow along with the workshop, you will need to install angular on your machine.
-The code repository is located at `https://github.com/lnewsom/app-of-horrors`
+The code repository is located at <https://github.com/lnewsom/app-of-horrors>
 To get started for the workshop, please use branch `version-one`
-`https://github.com/lnewsom/app-of-horrors/tree/version-one`
+<https://github.com/lnewsom/app-of-horrors/tree/version-one>
 
 Be sure to run `npm install` to make sure you have all of the correct dependencies pulled down. 
 
