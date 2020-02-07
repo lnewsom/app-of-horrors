@@ -23,20 +23,20 @@ describe('PlantListingTableComponent', () => {
         mockPlantQuantityService = new PlantQuantityService();
         mockSelectedPlantService = new SelectedPlantService();
     });
-    
+
     describe('ngOnInit', () => {
         describe('route params subscribe', () => {
             beforeEach(() => {
-                underTest = new PlantListingTableComponent(mockActivatedRoute, mockRestService, mockPlantQuantityService, mockSelectedPlantService)
+                underTest = new PlantListingTableComponent(mockActivatedRoute, mockRestService, mockPlantQuantityService, mockSelectedPlantService);
                 underTest.emitPlantType.emit = jest.fn();
-    
+
                 underTest.ngOnInit();
             });
 
             test('plantType is set to expected plantType', () => {
                 expect(underTest.plantType).toEqual(expectedPlantType);
             });
-    
+
             test('emitPlantType emit is called with expectedPlantType', () => {
                 expect(underTest.emitPlantType.emit).toHaveBeenCalledWith(expectedPlantType.toLowerCase());
             });
@@ -69,9 +69,9 @@ describe('PlantListingTableComponent', () => {
                 mockRestService.getPlantListings = jest.fn(() => of(incomingPlantListings));
                 mockRestService.getPlantQuantities = jest.fn(() => of(incomingQuantities));
                 mockPlantQuantityService.mapQuantities = jest.fn(() => expectedPlantListings);
-                underTest = new PlantListingTableComponent(mockActivatedRoute, mockRestService, mockPlantQuantityService, mockSelectedPlantService)
+                underTest = new PlantListingTableComponent(mockActivatedRoute, mockRestService, mockPlantQuantityService, mockSelectedPlantService);
             });
-            
+
             test('plantListings$ returns expectedPlantListings', (done) => {
                 underTest.ngOnInit();
 
@@ -92,12 +92,12 @@ describe('PlantListingTableComponent', () => {
 
             mockSelectedPlantService.selectPlant = jest.fn();
 
-            underTest = new PlantListingTableComponent(mockActivatedRoute, mockRestService, mockPlantQuantityService, mockSelectedPlantService)
+            underTest = new PlantListingTableComponent(mockActivatedRoute, mockRestService, mockPlantQuantityService, mockSelectedPlantService);
         });
 
         test('selectedPlantService selectPlant is called with expected plant listing', () => {
             underTest.selectPlant(expectedPlantListing);
-            
+
             expect(mockSelectedPlantService.selectPlant).toHaveBeenCalledWith(expectedPlantListing);
         });
 

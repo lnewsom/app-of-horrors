@@ -6,7 +6,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             plantName: 'White Baneberry',
             speciesName: 'Actaea pachypoda',
             description: `Also known as Doll\'s Eyes. The stems, berries, and other parts of the white baneberry are extremely poisonous to humans.
-             The fruits contain cardiogenic toxins, and consuming them can cause hallucinations, dizziness, diarrhea, headaches, severe stomach cramps, 
+             The fruits contain cardiogenic toxins, and consuming them can cause hallucinations, dizziness, diarrhea, headaches, severe stomach cramps,
              salivation, and burning of throat and mouth. Ingesting the berries can also cause cardiac arrest and death.`,
             imageUrl: 'assets/plantImages/white_baneberry.jpg',
             category: 'poisonous',
@@ -16,8 +16,8 @@ export const PLANT_LISTINGS: PlantListing[] = [
             plantId: 2,
             plantName: 'Water Hemlock',
             speciesName: 'Cicuta maculata',
-            description: `Water Hemlock is the most violently poisonous plant in North America. It is infused with deadly cicutoxin, especially in its roots, and will rapidly generate potentially 
-            fatal symptoms in anyone unlucky enough to eat it. Painful convulsions, abdominal cramps, nausea, and death are common, and 
+            description: `Water Hemlock is the most violently poisonous plant in North America. It is infused with deadly cicutoxin, especially in its roots, and will rapidly generate potentially
+            fatal symptoms in anyone unlucky enough to eat it. Painful convulsions, abdominal cramps, nausea, and death are common, and
             those who survive are often afflicted with amnesia or lasting tremors.`,
             imageUrl: 'assets/plantImages/water_hemlock.jpg',
             category: 'poisonous',
@@ -27,7 +27,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             plantId: 3,
             plantName: 'Deadly Nightshade',
             speciesName: 'Atropa belladonna',
-            description: `Nightshade contains atropine and scopolamine in its stems, leaves, berries, and roots, and causes paralysis in 
+            description: `Nightshade contains atropine and scopolamine in its stems, leaves, berries, and roots, and causes paralysis in
             the involuntary muscles of the body, including the heart. Even physical contact with the leaves may cause skin irritation.`,
             imageUrl: 'assets/plantImages/deadly_nightshade.jpg',
             category: 'poisonous',
@@ -37,7 +37,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             plantId: 5,
             plantName: 'Castor Bean',
             speciesName: 'Ricinus communis',
-            description: `It only takes one or two seeds to kill a child and up to eight to kill an adult. Ricin works by inhibiting 
+            description: `It only takes one or two seeds to kill a child and up to eight to kill an adult. Ricin works by inhibiting
             the synthesis of proteins within cells and can cause severe vomiting, diarrhea, seizures, and even death.`,
             imageUrl: 'assets/plantImages/castor_bean.jpg',
             category: 'poisonous',
@@ -48,7 +48,7 @@ export const PLANT_LISTINGS: PlantListing[] = [
             plantName: 'Rosary Pea',
             speciesName: 'Abrus precatorius',
             description: `Also called jequirity beans, these piously-named seeds contain abrin, an extremely deadly ribosome-inhibiting protein
-            . Rosary peas are native to tropical areas and are often used in jewelry and prayer rosaries. While the seeds are not poisonous if 
+            . Rosary peas are native to tropical areas and are often used in jewelry and prayer rosaries. While the seeds are not poisonous if
             intact, seeds that are scratched, broken, or chewed can be lethal.`,
             imageUrl: 'assets/plantImages/rosary_pea.jpg',
             category: 'poisonous',

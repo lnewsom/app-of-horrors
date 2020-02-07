@@ -28,6 +28,6 @@ describe('SelectedPlantComponent', () => {
                 expect(actualPlantListing).toEqual(expectedSelectedPlantListing);
             });
         });
-    })
+    });
 
 });

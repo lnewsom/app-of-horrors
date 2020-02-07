@@ -12,6 +12,6 @@ export class PlantQuantityService {
                 ...listing,
                 quantity: listingQuantity.quantity
             });
-        })
+        });
     }
 }

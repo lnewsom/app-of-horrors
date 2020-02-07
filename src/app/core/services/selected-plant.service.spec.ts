@@ -5,7 +5,7 @@ import { generateRandomPlantListing } from 'src/test-utils/model-generators';
 describe('SelectedPlantService', () => {
     let underTest: SelectedPlantService;
     let expectedPlantListing: PlantListing;
-    
+
     beforeEach(() => {
         expectedPlantListing = generateRandomPlantListing();
 
@@ -28,5 +28,5 @@ describe('SelectedPlantService', () => {
         });
 
         underTest.clearSelectedPlant();
-    })
+    });
 });

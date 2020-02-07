@@ -23,7 +23,7 @@ describe('PlantQuantityService', () => {
         incomingPlantListings = [
             generateRandomPlantListing({ plantId: plantIdOne, quantity: undefined}),
             generateRandomPlantListing({ plantId: plantIdTwo, quantity: undefined }),
-            generateRandomPlantListing({ plantId: plantIdThree, quantity: undefined })        
+            generateRandomPlantListing({ plantId: plantIdThree, quantity: undefined })
         ];
 
         incomingPlantQuantities = [
@@ -53,5 +53,5 @@ describe('PlantQuantityService', () => {
         const actualPlantListings: PlantListing[] = underTest.mapQuantities(incomingPlantListings, incomingPlantQuantities);
 
         expect(actualPlantListings).toEqual(expectedPlantListings);
-    })
+    });
 });

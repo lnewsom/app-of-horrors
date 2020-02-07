@@ -4,20 +4,20 @@ import { SelectedPlantService } from 'src/app/core/services/selected-plant.servi
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-selected-plant',
-  templateUrl: './selected-plant.component.html',
-  styleUrls: ['./selected-plant.component.scss']
+    selector: 'app-selected-plant',
+    templateUrl: './selected-plant.component.html',
+    styleUrls: ['./selected-plant.component.scss']
 })
 export class SelectedPlantComponent implements OnInit {
-  public selectedPlant$: Observable<PlantListing>
-  @Input() plantType: string;
+    public selectedPlant$: Observable<PlantListing>;
+    @Input() plantType: string;
 
-  public constructor(
-    private selectedPlantService: SelectedPlantService
-  ){
-  }
+    public constructor(
+        private selectedPlantService: SelectedPlantService
+    ) {
+    }
 
-  public ngOnInit(): void {
-    this.selectedPlant$ = this.selectedPlantService.getSelectedPlant();
-  }
+    public ngOnInit(): void {
+        this.selectedPlant$ = this.selectedPlantService.getSelectedPlant();
+    }
 }

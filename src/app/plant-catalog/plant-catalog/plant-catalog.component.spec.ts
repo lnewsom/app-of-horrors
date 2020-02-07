@@ -40,5 +40,5 @@ describe('PlantCatalogComponent', () => {
 
             expect(underTest.plantType).toEqual(expectedPlantType);
         });
-    })
+    });
 });

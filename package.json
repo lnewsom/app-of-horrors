@@ -6,10 +6,7 @@
         "start": "ng serve -o",
         "build": "ng build",
         "test": "jest --coverage --runInBand",
-        "lint": "ng lint",
-        "e2e": "ng e2e",
-        "e2e:local": "ng e2e -c local",
-        "e2e:pilot": "ng e2e -c pilot"
+        "lint": "ng lint"
     },
     "private": true,
     "dependencies": {
