@@ -16,7 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PlantListingTableComponent implements OnInit {
     public plantListings$: Observable<any>;
     public plantType: string; // route param
-    @Output() emitPlantType: EventEmitter<string> = new EventEmitter<string>(); // output to sibling
+    @Output() emitPlantType: EventEmitter<string> = new EventEmitter<string>(); // output route param to sibling
     @Input() user: User; // from parent
 
     public constructor(
