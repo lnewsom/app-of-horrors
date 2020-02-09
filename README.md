@@ -7,18 +7,25 @@ This project is a companion project to the Ng Conf 2020 workshop "Little App of 
 To follow along with the workshop, you will need to install angular on your machine.
 * The code repository is located at 
   * <https://github.com/lnewsom/app-of-horrors>
-* To get started for the workshop, please use branch `version-one`
-  * <https://github.com/lnewsom/app-of-horrors/tree/version-one>
 
-Be sure to run `npm install` to make sure you have all of the correct dependencies pulled down. 
+# Set Up Ng Conf Workshop
+If you are attending "Little App of Horrors - Saving the Day with NgRx" please do the following steps before the workshop to make sure you are able to code along. 
+
+You will need git, node, angular, and your favorite code editor installed on your machine. 
+
+I will be using VS Code for the workshop.
+
+* $ `git clone https://github.com/lnewsom/app-of-horrors.git`
+* $ `cd app-of-horrors/`
+* $ `git checkout version-one`
+* $ `npm install`
+* $ `ng serve -o`
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. 
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+To stop the app while it is running press Ctrl + C in the terminal that is running the code.
 
 ## Running unit tests
 
