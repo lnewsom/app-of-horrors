@@ -3,7 +3,7 @@ import { User } from '../core/models/user';
 
 describe('AuthenticationService', () => {
     let underTest: AuthenticationService;
-    const expectedUser: User = new User('oscrivello', 'Orin', 'Scrivello', 2);
+    const expectedUser: User = new User('skrelbourn', 'Seymour', 'Krelbourn', 2);
 
     beforeEach(() => {
         underTest = new AuthenticationService();
