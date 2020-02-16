@@ -2,10 +2,10 @@
     <div class="card" *ngIf="selectedPlant$ | async as selectedPlant">
         <div class="card-body row">
             <div class="col-12 selected-title text-center">{{ plantType === 'all' ? selectedPlant.category : plantType }}</div>
-            <div class="m-2 col-4">
+            <div class="m-2 col-xs-12 col-xl-4 text-center">
                 <img width="250px" src="{{ selectedPlant.imageUrl }}"/>
             </div>
-            <div class="col-7 text-left">
+            <div class="col-xs-12 col-xl-7 text-left">
                 <h5 class="card-text col-12 text-success">{{ selectedPlant.plantName }} - <i>{{ selectedPlant.speciesName }}</i></h5>
                 <div class="card-text col-12">{{ selectedPlant.description }}</div>
                 <h3 class="card-text col-12 text-success">${{ selectedPlant.price }}</h3>
