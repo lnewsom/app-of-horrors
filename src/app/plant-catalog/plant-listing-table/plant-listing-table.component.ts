@@ -9,7 +9,7 @@ import { SelectedPlantService } from 'src/app/core/services/selected-plant.servi
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'app-plant-listing-table',
+    selector: 'plant-listing-table',
     templateUrl: './plant-listing-table.component.html',
     styleUrls: ['./plant-listing-table.component.scss']
 })
@@ -32,15 +32,18 @@ export class PlantListingTableComponent implements OnInit {
             this.emitPlantType.emit(params.plantType.toLowerCase());
         });
 
-        this.plantListings$ = zip(this.restService.getPlantListings(), this.restService.getPlantQuantities()) // http calls
-            .pipe(
-                map((response) => {
-                    const listings: PlantListing[] = response[0];
-                    const quantities: { plantId: number, quantity: number }[] = response[1];
+        this.plantListings$ = zip(
+            this.restService.getPlantListings(), 
+            this.restService.getPlantQuantities()
+        ) // faux http calls
+        .pipe(
+            map((response) => {
+                const listings: PlantListing[] = response[0];
+                const quantities: { plantId: number, quantity: number }[] = response[1];
 
-                    return this.plantQuantityService.mapQuantities(listings, quantities);
-                })
-            );
+                return this.plantQuantityService.mapQuantities(listings, quantities);
+            })
+        );
     }
 
     public selectPlant(selectedPlant: PlantListing): void {

@@ -4,7 +4,7 @@ import { SelectedPlantService } from 'src/app/core/services/selected-plant.servi
 import { Observable } from 'rxjs';
 
 @Component({
-    selector: 'app-selected-plant',
+    selector: 'selected-plant',
     templateUrl: './selected-plant.component.html',
     styleUrls: ['./selected-plant.component.scss']
 })

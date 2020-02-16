@@ -4,7 +4,7 @@ import { AuthenticationService } from '../../authentication/authentication.servi
 import { User } from 'src/app/core/models/user';
 
 @Component({
-    selector: 'app-plant-catalog',
+    selector: 'plant-catalog',
     templateUrl: './plant-catalog.component.html'
 })
 export class PlantCatalogComponent implements OnInit {
@@ -23,5 +23,4 @@ export class PlantCatalogComponent implements OnInit {
     public setPlantType(plantType: string): void {
         this.plantType = plantType;
     }
-
 }
