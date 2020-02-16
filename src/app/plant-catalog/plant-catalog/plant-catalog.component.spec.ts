@@ -2,7 +2,7 @@ import { PlantCatalogComponent } from './plant-catalog.component';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { User } from 'src/app/core/models/user';
 import { of } from 'rxjs';
-import { chance } from '../../../test-utils/model-generators';
+import { chance, generateRandomUser } from '../../../test-utils/model-generators';
 
 jest.mock('src/app/authentication/authentication.service');
 
@@ -13,7 +13,7 @@ describe('PlantCatalogComponent', () => {
     let expectedPlantType: string;
 
     beforeEach(() => {
-        expectedUser = new User(chance.string(), chance.string(), chance.string(), chance.integer());
+        expectedUser = generateRandomUser();
 
         mockAuthenticationService = new AuthenticationService();
         mockAuthenticationService.getUser = jest.fn(() => of(expectedUser));
