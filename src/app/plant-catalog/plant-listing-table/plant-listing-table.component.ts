@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { RestService } from '../../core/services/rest.service';
 import { Observable, zip } from 'rxjs';
 import { PlantListing } from '../../core/models/plant-listing';
@@ -16,7 +16,6 @@ import { ActivatedRoute } from '@angular/router';
 export class PlantListingTableComponent implements OnInit {
     public plantListings$: Observable<any>;
     public plantType: string; // route param
-    @Output() emitPlantType: EventEmitter<string> = new EventEmitter<string>(); // output route param to sibling
     @Input() user: User; // from parent
 
     public constructor(
@@ -29,7 +28,6 @@ export class PlantListingTableComponent implements OnInit {
     public ngOnInit(): void {
         this.activatedRoute.params.subscribe((params) => {
             this.plantType = params.plantType;
-            this.emitPlantType.emit(params.plantType.toLowerCase());
         });
 
         this.plantListings$ = zip(

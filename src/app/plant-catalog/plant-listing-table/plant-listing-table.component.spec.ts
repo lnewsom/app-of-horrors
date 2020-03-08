@@ -28,17 +28,12 @@ describe('PlantListingTableComponent', () => {
         describe('route params subscribe', () => {
             beforeEach(() => {
                 underTest = new PlantListingTableComponent(mockActivatedRoute, mockRestService, mockPlantQuantityService, mockSelectedPlantService);
-                underTest.emitPlantType.emit = jest.fn();
 
                 underTest.ngOnInit();
             });
 
             test('plantType is set to expected plantType', () => {
                 expect(underTest.plantType).toEqual(expectedPlantType);
-            });
-
-            test('emitPlantType emit is called with expectedPlantType', () => {
-                expect(underTest.emitPlantType.emit).toHaveBeenCalledWith(expectedPlantType.toLowerCase());
             });
         });
 
