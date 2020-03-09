@@ -17,3 +17,17 @@ export const reducers: ActionReducerMap<State> = {
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+
+export const selectRouter = createFeatureSelector<
+  State,
+  fromRouter.RouterReducerState<any>
+>('router');
+ 
+const {
+  selectQueryParams,    // select the current route query params
+  selectQueryParam,     // factory function to select a query param
+  selectRouteParams,    // select the current route params
+  selectRouteParam,     // factory function to select a route param
+  selectRouteData,      // select the current route data
+  selectUrl,            // select the current url
+} = fromRouter.getSelectors(selectRouter);
