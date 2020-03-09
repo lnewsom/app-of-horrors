@@ -31,3 +31,5 @@ const {
   selectRouteData,      // select the current route data
   selectUrl,            // select the current url
 } = fromRouter.getSelectors(selectRouter);
+
+export const getPlantType = createSelector(selectRouteParam('plantType'), (plantType) => plantType);
