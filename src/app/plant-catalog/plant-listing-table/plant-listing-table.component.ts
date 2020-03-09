@@ -6,7 +6,8 @@ import { PlantQuantityService } from '../../core/services/plant-quantity.service
 import { map } from 'rxjs/operators';
 import { User } from '../../core/models/user';
 import { SelectedPlantService } from 'src/app/core/services/selected-plant.service';
-import { ActivatedRoute } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+import * as fromRoot from '../../reducers/index';
 
 @Component({
     selector: 'plant-listing-table',
@@ -15,20 +16,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PlantListingTableComponent implements OnInit {
     public plantListings$: Observable<any>;
-    public plantType: string; // route param
+    public plantType$: Observable<string>; // route param
     @Input() user: User; // from parent
 
     public constructor(
-        private activatedRoute: ActivatedRoute,
         private restService: RestService,
         private plantQuantityService: PlantQuantityService,
-        private selectedPlantService: SelectedPlantService
+        private selectedPlantService: SelectedPlantService,
+        private store: Store<fromRoot.State>
     ) { }
 
     public ngOnInit(): void {
-        this.activatedRoute.params.subscribe((params) => {
-            this.plantType = params.plantType;
-        });
+        this.plantType$ = this.store.pipe(
+            select(fromRoot.getPlantType)
+        );
 
         this.plantListings$ = zip(
             this.restService.getPlantListings(), 
