@@ -15,7 +15,7 @@ describe('root module state', () => {
             test('getPlantType', () => {
                 const expectedPlantType: string = chance.string();
         
-                const actualPlantType: string = fromRoot.getPlantType.projector(expectedPlantType);
+                const actualPlantType: string = fromRoot.selectPlantType.projector(expectedPlantType);
         
                 expect(actualPlantType).toEqual(expectedPlantType);
             });
