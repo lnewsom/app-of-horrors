@@ -28,7 +28,7 @@ export class PlantListingTableComponent implements OnInit {
 
     public ngOnInit(): void {
         this.plantType$ = this.store.pipe(
-            select(fromRoot.getPlantType)
+            select(fromRoot.selectPlantType)
         );
 
         this.plantListings$ = zip(

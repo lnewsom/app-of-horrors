@@ -9,7 +9,7 @@ import { PlantListing } from 'src/app/core/models/plant-listing';
 import { chance, generateRandomPlantListing } from 'src/test-utils/model-generators';
 import { MockStore, MockState } from '@ngrx/store/testing';
 import { ActionsSubject } from '@ngrx/store';
-import { getPlantType } from 'src/app/reducers';
+import { selectPlantType } from 'src/app/reducers';
 
 describe('PlantListingTableComponent', () => {
     const expectedPlantType: string = chance.string();
@@ -24,7 +24,7 @@ describe('PlantListingTableComponent', () => {
         mockPlantQuantityService = new PlantQuantityService();
         mockSelectedPlantService = new SelectedPlantService();
         mockStore = new MockStore(new MockState, new ActionsSubject, null, null);
-        mockStore.overrideSelector(getPlantType, expectedPlantType)
+        mockStore.overrideSelector(selectPlantType, expectedPlantType)
     });
 
     describe('ngOnInit', () => {
