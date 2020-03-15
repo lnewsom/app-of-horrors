@@ -3,7 +3,6 @@ import { PlantListingTableComponent } from './plant-listing-table.component';
 import { RestService } from 'src/app/core/services/rest.service';
 import { PlantQuantityService } from 'src/app/core/services/plant-quantity.service';
 import { SelectedPlantService } from 'src/app/core/services/selected-plant.service';
-import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { PlantListing } from 'src/app/core/models/plant-listing';
 import { chance, generateRandomPlantListing } from 'src/test-utils/model-generators';
