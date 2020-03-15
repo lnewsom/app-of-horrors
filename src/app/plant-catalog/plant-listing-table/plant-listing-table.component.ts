@@ -16,8 +16,7 @@ import * as fromRoot from '../../reducers/index';
 })
 export class PlantListingTableComponent implements OnInit {
     public plantListings$: Observable<any>;
-    public plantType$: Observable<string>; // route param
-    public user$: Observable<User>; // from parent
+    public componentData$: Observable<any>;
 
     public constructor(
         private restService: RestService,
@@ -27,12 +26,8 @@ export class PlantListingTableComponent implements OnInit {
     ) { }
 
     public ngOnInit(): void {
-        this.plantType$ = this.store.pipe(
-            select(fromRoot.selectPlantType)
-        );
-
-        this.user$ = this.store.pipe(
-            select(fromRoot.selectUser)
+        this.componentData$ = this.store.pipe(
+            select(fromRoot.selectPlantTableData)
         );
 
         this.plantListings$ = zip(
