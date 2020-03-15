@@ -36,4 +36,10 @@ export const selectPlantType = createSelector(selectRouteParam('plantType'), (pl
 
 const selectUserState = createFeatureSelector(fromUser.userStateFeatureKey);
 
-export const selectUser = createSelector(selectUserState, (state: fromUser.State) => state.user)
+export const selectUser = createSelector(selectUserState, (state: fromUser.State) => state.user);
+
+export const selectPlantTableData = createSelector(
+  selectPlantType, 
+  selectUser, 
+  (plantType, user) => ({ plantType, user })
+);
