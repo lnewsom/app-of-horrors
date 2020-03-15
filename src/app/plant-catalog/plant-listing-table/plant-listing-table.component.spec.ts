@@ -5,13 +5,15 @@ import { PlantQuantityService } from 'src/app/core/services/plant-quantity.servi
 import { SelectedPlantService } from 'src/app/core/services/selected-plant.service';
 import { of } from 'rxjs';
 import { PlantListing } from 'src/app/core/models/plant-listing';
-import { chance, generateRandomPlantListing } from 'src/test-utils/model-generators';
+import { chance, generateRandomPlantListing, generateRandomUser } from 'src/test-utils/model-generators';
 import { MockStore, MockState } from '@ngrx/store/testing';
 import { ActionsSubject } from '@ngrx/store';
-import { selectPlantType } from 'src/app/reducers';
+import { selectPlantTableData } from 'src/app/reducers';
+import { User } from 'src/app/core/models/user';
 
 describe('PlantListingTableComponent', () => {
     const expectedPlantType: string = chance.string();
+    const expectedUser: User = generateRandomUser();
     let mockRestService: RestService;
     let mockPlantQuantityService: PlantQuantityService;
     let mockSelectedPlantService: SelectedPlantService;
@@ -23,20 +25,22 @@ describe('PlantListingTableComponent', () => {
         mockPlantQuantityService = new PlantQuantityService();
         mockSelectedPlantService = new SelectedPlantService();
         mockStore = new MockStore(new MockState, new ActionsSubject, null, null);
-        mockStore.overrideSelector(selectPlantType, expectedPlantType)
     });
-
+    
     describe('ngOnInit', () => {
-        describe('route params subscribe', () => {
+        describe('component data subscribe', () => {
             beforeEach(() => {
                 underTest = new PlantListingTableComponent(mockRestService, mockPlantQuantityService, mockSelectedPlantService, mockStore);
-
+                
                 underTest.ngOnInit();
             });
+            
+            test('componentData is set to expected component data', (done) => {
+                const expectedComponentData = { plantType: expectedPlantType, user: expectedUser };
+                mockStore.overrideSelector(selectPlantTableData, expectedComponentData);
 
-            test('plantType is set to expected plantType', (done) => {
-                underTest.plantType$.subscribe((plantType) => {
-                    expect(plantType).toEqual(expectedPlantType);
+                underTest.componentData$.subscribe((actualComponentData) => {
+                    expect(actualComponentData).toEqual(expectedComponentData);
                     done();
                 });
             });
