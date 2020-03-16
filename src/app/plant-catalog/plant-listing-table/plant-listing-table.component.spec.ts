@@ -2,35 +2,38 @@
 import { PlantListingTableComponent } from './plant-listing-table.component';
 import { RestService } from 'src/app/core/services/rest.service';
 import { PlantQuantityService } from 'src/app/core/services/plant-quantity.service';
-import { SelectedPlantService } from 'src/app/core/services/selected-plant.service';
-import { of } from 'rxjs';
+import { of, Subscription } from 'rxjs';
 import { PlantListing } from 'src/app/core/models/plant-listing';
 import { chance, generateRandomPlantListing, generateRandomUser } from 'src/test-utils/model-generators';
 import { MockStore, MockState } from '@ngrx/store/testing';
-import { ActionsSubject } from '@ngrx/store';
+import { ActionsSubject, Action } from '@ngrx/store';
 import { selectPlantTableData } from 'src/app/reducers';
 import { User } from 'src/app/core/models/user';
+import { setPlantListings, setSelectedPlant } from 'src/app/reducers/plant-state';
 
 describe('PlantListingTableComponent', () => {
     const expectedPlantType: string = chance.string();
     const expectedUser: User = generateRandomUser();
     let mockRestService: RestService;
     let mockPlantQuantityService: PlantQuantityService;
-    let mockSelectedPlantService: SelectedPlantService;
     let mockStore: MockStore<any>;
     let underTest: PlantListingTableComponent;
 
     beforeEach(() => {
         mockRestService = new RestService();
         mockPlantQuantityService = new PlantQuantityService();
-        mockSelectedPlantService = new SelectedPlantService();
         mockStore = new MockStore(new MockState, new ActionsSubject, null, null);
+        mockStore.dispatch = jest.fn();
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
     });
     
     describe('ngOnInit', () => {
         describe('component data subscribe', () => {
             beforeEach(() => {
-                underTest = new PlantListingTableComponent(mockRestService, mockPlantQuantityService, mockSelectedPlantService, mockStore);
+                underTest = new PlantListingTableComponent(mockRestService, mockPlantQuantityService, mockStore);
                 
                 underTest.ngOnInit();
             });
@@ -46,7 +49,7 @@ describe('PlantListingTableComponent', () => {
             });
         });
 
-        describe('plantListings$', () => {
+        describe('plantListingsSubscription', () => {
             let expectedPlantListings: PlantListing[];
 
             beforeEach(() => {
@@ -73,19 +76,30 @@ describe('PlantListingTableComponent', () => {
                 mockRestService.getPlantListings = jest.fn(() => of(incomingPlantListings));
                 mockRestService.getPlantQuantities = jest.fn(() => of(incomingQuantities));
                 mockPlantQuantityService.mapQuantities = jest.fn(() => expectedPlantListings);
-                underTest = new PlantListingTableComponent(mockRestService, mockPlantQuantityService, mockSelectedPlantService, mockStore);
+                underTest = new PlantListingTableComponent(mockRestService, mockPlantQuantityService, mockStore);
             });
 
-            test('plantListings$ returns expectedPlantListings', (done) => {
+            test('dispatch to have been called with expectedPlantListings', () => {
+                const expectedAction: Action = setPlantListings({ plantListings: expectedPlantListings });
+
                 underTest.ngOnInit();
 
-                underTest.plantListings$.subscribe((plantListings) => {
-                    expect(plantListings).toEqual(expectedPlantListings);
-                    done();
-                });
-
+                expect(mockStore.dispatch).toHaveBeenCalledTimes(1);
+                expect(mockStore.dispatch).toHaveBeenCalledWith(expectedAction);
             });
         });
+    });
+
+    describe('ngOnDestroy', () => {
+        test('subscription is unsubscribed', () => {
+            underTest.plantListingSubscription = new Subscription;
+            underTest.plantListingSubscription.unsubscribe = jest.fn();
+
+            underTest.ngOnDestroy();
+
+            expect(underTest.plantListingSubscription.unsubscribe).toHaveBeenCalled();
+        });
+
     });
 
     describe('selectPlant', () => {
@@ -94,18 +108,15 @@ describe('PlantListingTableComponent', () => {
         beforeEach(() => {
             expectedPlantListing = generateRandomPlantListing();
 
-            mockSelectedPlantService.selectPlant = jest.fn();
-
-            underTest = new PlantListingTableComponent(mockRestService, mockPlantQuantityService, mockSelectedPlantService, mockStore);
+            underTest = new PlantListingTableComponent(mockRestService, mockPlantQuantityService, mockStore);
         });
 
         test('selectedPlantService selectPlant is called with expected plant listing', () => {
+            const expectedAction: Action = setSelectedPlant({ selectedPlant: expectedPlantListing });
+
             underTest.selectPlant(expectedPlantListing);
 
-            expect(mockSelectedPlantService.selectPlant).toHaveBeenCalledWith(expectedPlantListing);
+            expect(mockStore.dispatch).toHaveBeenCalledWith(expectedAction);
         });
-
     });
-
-
 });
