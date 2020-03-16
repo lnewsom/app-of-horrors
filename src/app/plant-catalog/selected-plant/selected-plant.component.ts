@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlantListing } from '../../core/models/plant-listing';
-import { SelectedPlantService } from 'src/app/core/services/selected-plant.service';
 import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import * as fromRoot from '../../reducers/index';
 
 @Component({
     selector: 'selected-plant',
@@ -12,11 +13,13 @@ export class SelectedPlantComponent implements OnInit {
     public selectedPlant$: Observable<PlantListing>;
 
     public constructor(
-        private selectedPlantService: SelectedPlantService
+        private store: Store<any>
     ) {
     }
 
     public ngOnInit(): void {
-        this.selectedPlant$ = this.selectedPlantService.getSelectedPlant();
+        this.selectedPlant$ = this.store.pipe(
+            select(fromRoot.selectSelectedPlant)
+        );
     }
 }
