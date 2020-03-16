@@ -1,24 +1,30 @@
 import { CoreComponent } from './core.component';
-import { SelectedPlantService } from '../services/selected-plant.service';
-
-jest.mock('../services/selected-plant.service');
+import { MockState, MockStore } from '@ngrx/store/testing';
+import { ActionsSubject, Action } from '@ngrx/store';
+import { clearSelectedPlant } from 'src/app/reducers/plant-state';
 
 describe('CoreComponent', () => {
     let underTest: CoreComponent;
-    let mockSelectedPlantService: SelectedPlantService;
+    let mockStore: MockStore<any>;
 
     beforeEach(() => {
-        mockSelectedPlantService = new SelectedPlantService();
-        mockSelectedPlantService.clearSelectedPlant = jest.fn();
+        mockStore = new MockStore(new MockState, new ActionsSubject, null, null);
+        mockStore.dispatch = jest.fn();
 
-        underTest = new CoreComponent(mockSelectedPlantService);
+        underTest = new CoreComponent(mockStore);
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
     });
 
     describe('clearSelectedPlant', () => {
         test('calls selectedPlantService.clearSelectedPlant', () => {
+            const expectedAction: Action = clearSelectedPlant();
             underTest.clearSelectedPlant();
 
-            expect(mockSelectedPlantService.clearSelectedPlant).toHaveBeenCalledTimes(1);
+            expect(mockStore.dispatch).toHaveBeenCalledTimes(1);
+            expect(mockStore.dispatch).toHaveBeenCalledWith(expectedAction);
         });
     });
 });
