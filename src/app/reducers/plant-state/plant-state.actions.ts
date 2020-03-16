@@ -6,7 +6,7 @@ export const setPlantListings = createAction(
 ); 
 
 export const setSelectedPlant = createAction(
-  '[PlantState] Setting Selected Plant', props<{ selectedplant: PlantListing}>()
+  '[PlantState] Setting Selected Plant', props<{ selectedPlant: PlantListing}>()
 ); 
 
 export const clearSelectedPlant = createAction(
