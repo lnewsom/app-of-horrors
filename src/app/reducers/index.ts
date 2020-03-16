@@ -7,15 +7,24 @@ import {
 
 import * as fromRouter from '@ngrx/router-store';
 import * as fromUser from './user-state/index';
+import * as fromPlant from './plant-state/index';
 
 export interface State {
   router: fromRouter.RouterReducerState<any>,
-  userState: fromUser.State
+  userState: fromUser.State,
+  plantState: fromPlant.State
+}
+
+export const initialState: State = {
+  router: undefined,
+  userState: fromUser.initialState,
+  plantState: fromPlant.initialState
 }
 
 export const reducers: ActionReducerMap<State> = {
   router: fromRouter.routerReducer,
-  userState: fromUser.reducer
+  userState: fromUser.reducer,
+  plantState: fromPlant.reducer
 };
 
 export const selectRouter = createFeatureSelector<
