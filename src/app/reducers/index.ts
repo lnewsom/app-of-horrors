@@ -57,5 +57,9 @@ export const selectPlantTableData = createSelector(
   selectPlantType, 
   selectUser,
   selectPlantListings,
-  (plantType, user, plantListings) => ({ plantType, user, plantListings })
+  (plantType, user, plantListings) => { 
+    if(plantType && user && plantListings) {
+      return { plantType, user, plantListings };
+    }
+  }
 );
