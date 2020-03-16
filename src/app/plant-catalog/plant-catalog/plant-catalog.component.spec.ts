@@ -5,6 +5,7 @@ import { of } from 'rxjs';
 import { chance, generateRandomUser } from '../../../test-utils/model-generators';
 import { MockStore, MockState } from '@ngrx/store/testing';
 import * as fromUser from '../../state/reducers/user-state';
+import * as fromPlant from '../../state/reducers/plant-state';
 import { ActionsSubject, Action } from '@ngrx/store';
 
 jest.mock('src/app/authentication/authentication.service');
@@ -37,10 +38,19 @@ describe('PlantCatalogComponent', () => {
             jest.clearAllMocks();
         });
 
+        test('dispatch is called', () => {
+            expect(mockStore.dispatch).toHaveBeenCalledTimes(2);
+        });
+
         test('setUser is dispatched', () => {
             const expectedAction: Action = fromUser.setUser({ user: expectedUser });
 
-            expect(mockStore.dispatch).toHaveBeenCalledTimes(1);
+            expect(mockStore.dispatch).toHaveBeenCalledWith(expectedAction);
+        });
+
+        test('getPlantListings is dispatched', () => {
+            const expectedAction: Action = fromPlant.getPlantListings();
+
             expect(mockStore.dispatch).toHaveBeenCalledWith(expectedAction);
         });
     });

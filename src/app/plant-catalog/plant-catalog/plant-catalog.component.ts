@@ -4,6 +4,7 @@ import { AuthenticationService } from '../../authentication/authentication.servi
 import { User } from 'src/app/core/models/user';
 import { Store } from '@ngrx/store';
 import { setUser } from 'src/app/state/reducers/user-state';
+import { getPlantListings } from 'src/app/state/reducers/plant-state';
 
 @Component({
     selector: 'plant-catalog',
@@ -21,6 +22,8 @@ export class PlantCatalogComponent implements OnInit {
 
     public ngOnInit(): void {
         this.authenticationService.getUser().subscribe((user) => this.store.dispatch(setUser({ user })));
+
+        this.store.dispatch(getPlantListings());
     }
 
     public setPlantType(plantType: string): void {
