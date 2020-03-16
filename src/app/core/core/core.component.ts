@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { SelectedPlantService } from '../services/selected-plant.service';
+import { Store } from '@ngrx/store';
+import { clearSelectedPlant } from 'src/app/reducers/plant-state';
 
 @Component({
     selector: 'app-core',
@@ -7,11 +8,11 @@ import { SelectedPlantService } from '../services/selected-plant.service';
 })
 export class CoreComponent {
     public constructor(
-        private selectedPlantService: SelectedPlantService
+        private store: Store<any>
     ) {
     }
 
     public clearSelectedPlant(): void {
-        this.selectedPlantService.clearSelectedPlant();
+        this.store.dispatch(clearSelectedPlant());
     }
 }
