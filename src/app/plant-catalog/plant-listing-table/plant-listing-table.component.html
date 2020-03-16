@@ -1,16 +1,14 @@
-<div class="plant-listing-table" *ngIf="plantListings$ | async as plantListings">
-    <ng-container *ngIf="componentData$ | async as componentData">
-        <div class="btn btn-title m-2 col-12">
-            <div class="text-danger text-center"><i>Welcome back {{ componentData.user.firstName}}!</i></div>
-            <h3 class="text-center text-dark">Shop {{componentData.plantType}} plants</h3>
+<div class="plant-listing-table" *ngIf="componentData$ | async as componentData">
+    <div class="btn btn-title m-2 col-12">
+        <div class="text-danger text-center"><i>Welcome back {{ componentData.user.firstName}}!</i></div>
+        <h3 class="text-center text-dark">Shop {{componentData.plantType}} plants</h3>
+    </div>
+    <ng-container *ngFor="let plantListing of componentData.plantListings row">
+        <div class="btn btn-light m-2 col-12"
+            *ngIf="plantListing.category.toLowerCase() === componentData.plantType.toLowerCase() || componentData.plantType.toLowerCase() === 'all'"
+            (click)="selectPlant(plantListing)">
+            {{ plantListing.plantName }} - <i>{{ plantListing.speciesName }}</i>
+            <div *ngIf="plantListing.quantity === 0" class="text-danger">OUT OF STOCK</div>
         </div>
-        <ng-container *ngFor="let plantListing of plantListings row">
-            <div class="btn btn-light m-2 col-12"
-                *ngIf="plantListing.category.toLowerCase() === componentData.plantType.toLowerCase() || componentData.plantType.toLowerCase() === 'all'"
-                (click)="selectPlant(plantListing)">
-                {{ plantListing.plantName }} - <i>{{ plantListing.speciesName }}</i>
-                <div *ngIf="plantListing.quantity === 0" class="text-danger">OUT OF STOCK</div>
-            </div>
-        </ng-container>
     </ng-container>
 </div>
