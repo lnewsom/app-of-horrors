@@ -7,9 +7,9 @@ import { PlantListing } from 'src/app/core/models/plant-listing';
 import { chance, generateRandomPlantListing, generateRandomUser } from 'src/test-utils/model-generators';
 import { MockStore, MockState } from '@ngrx/store/testing';
 import { ActionsSubject, Action } from '@ngrx/store';
-import { selectPlantTableData } from 'src/app/reducers';
+import { selectPlantTableData } from 'src/app/state/reducers';
 import { User } from 'src/app/core/models/user';
-import { setPlantListings, setSelectedPlant } from 'src/app/reducers/plant-state';
+import { setPlantListings, setSelectedPlant } from 'src/app/state/reducers/plant-state';
 
 describe('PlantListingTableComponent', () => {
     const expectedPlantType: string = chance.string();

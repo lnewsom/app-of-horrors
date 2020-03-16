@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlantListing } from '../../core/models/plant-listing';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import * as fromRoot from '../../reducers/index';
+import * as fromRoot from '../../state/reducers/index';
 
 @Component({
     selector: 'selected-plant',

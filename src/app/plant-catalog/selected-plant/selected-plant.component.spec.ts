@@ -3,7 +3,7 @@ import { PlantListing } from 'src/app/core/models/plant-listing';
 import { generateRandomPlantListing } from 'src/test-utils/model-generators';
 import { MockStore, MockState } from '@ngrx/store/testing';
 import { ActionsSubject } from '@ngrx/store';
-import { selectSelectedPlant } from 'src/app/reducers';
+import { selectSelectedPlant } from 'src/app/state/reducers';
 
 describe('SelectedPlantComponent', () => {
     let underTest: SelectedPlantComponent;

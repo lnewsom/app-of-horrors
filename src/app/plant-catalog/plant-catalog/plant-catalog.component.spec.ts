@@ -4,7 +4,7 @@ import { User } from 'src/app/core/models/user';
 import { of } from 'rxjs';
 import { chance, generateRandomUser } from '../../../test-utils/model-generators';
 import { MockStore, MockState } from '@ngrx/store/testing';
-import * as fromUser from '../../reducers/user-state';
+import * as fromUser from '../../state/reducers/user-state';
 import { ActionsSubject, Action } from '@ngrx/store';
 
 jest.mock('src/app/authentication/authentication.service');

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { clearSelectedPlant } from 'src/app/reducers/plant-state';
+import { clearSelectedPlant } from 'src/app/state/reducers/plant-state';
 
 @Component({
     selector: 'app-core',

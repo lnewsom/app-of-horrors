@@ -5,8 +5,8 @@ import { PlantListing } from '../../core/models/plant-listing';
 import { PlantQuantityService } from '../../core/services/plant-quantity.service';
 import { map } from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';
-import * as fromRoot from '../../reducers/index';
-import { setPlantListings, setSelectedPlant } from 'src/app/reducers/plant-state';
+import * as fromRoot from '../../state/reducers/index';
+import { setPlantListings, setSelectedPlant } from 'src/app/state/reducers/plant-state';
 
 @Component({
     selector: 'plant-listing-table',

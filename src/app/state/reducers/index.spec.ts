@@ -3,9 +3,9 @@ import * as fromRouter from '@ngrx/router-store';
 import * as fromRoot from './index';
 import * as fromUser from './user-state';
 import * as fromPlant from './plant-state';
-import { chance, generateRandomUser, generateRandomPlantListing } from '../../test-utils/model-generators';
-import { User } from '../core/models/user';
-import { PlantListing } from '../core/models/plant-listing';
+import { chance, generateRandomUser, generateRandomPlantListing } from '../../../test-utils/model-generators';
+import { User } from '../../core/models/user';
+import { PlantListing } from '../../core/models/plant-listing';
 
 describe('root module state', () => {
     describe('router role call', () => {

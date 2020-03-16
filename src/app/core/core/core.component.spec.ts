@@ -1,7 +1,7 @@
 import { CoreComponent } from './core.component';
 import { MockState, MockStore } from '@ngrx/store/testing';
 import { ActionsSubject, Action } from '@ngrx/store';
-import { clearSelectedPlant } from 'src/app/reducers/plant-state';
+import { clearSelectedPlant } from 'src/app/state/reducers/plant-state';
 
 describe('CoreComponent', () => {
     let underTest: CoreComponent;

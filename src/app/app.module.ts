@@ -5,12 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './reducers';
+import { reducers } from './state/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
+import { AppEffects } from './state/effects/app.effects';
 
 @NgModule({
     declarations: [
