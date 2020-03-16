@@ -45,10 +45,17 @@ export const selectPlantType = createSelector(selectRouteParam('plantType'), (pl
 
 const selectUserState = createFeatureSelector(fromUser.userStateFeatureKey);
 
+const selectPlantState = createFeatureSelector(fromPlant.plantStateFeatureKey);
+
 export const selectUser = createSelector(selectUserState, (state: fromUser.State) => state.user);
+
+export const selectPlantListings = createSelector(selectPlantState, (state: fromPlant.State) => state.plantListings);
+
+export const selectSelectedPlant = createSelector(selectPlantState, (state: fromPlant.State) => state.selectedPlant);
 
 export const selectPlantTableData = createSelector(
   selectPlantType, 
-  selectUser, 
-  (plantType, user) => ({ plantType, user })
+  selectUser,
+  selectPlantListings,
+  (plantType, user, plantListings) => ({ plantType, user, plantListings })
 );
