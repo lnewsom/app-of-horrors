@@ -10,7 +10,8 @@ import { PlantListing } from 'src/app/core/models/plant-listing';
 @Injectable()
 export class AppEffects {
   @Effect()
-  public getPlantListings$ = this.actions$.pipe(
+  public getPlantListings$ = createEffect(() => 
+  this.actions$.pipe(
     ofType(getPlantListings),
     mergeMap(() => {
       return zip(
@@ -27,7 +28,7 @@ export class AppEffects {
       )
     }),
     map((plantListings) => setPlantListings({ plantListings }))
-  );
+  ));
   
   constructor(
     private actions$: Actions,
