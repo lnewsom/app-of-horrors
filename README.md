@@ -1,6 +1,6 @@
 # AppOfHorrors
 
-## Branch step-two
+## Branch: step-two
 This branch has NgRx installed and is using NgRx-Store to access router parameters.
 
 # Set Up Ng Conf Workshop
