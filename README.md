@@ -1,6 +1,6 @@
 # AppOfHorrors
 
-## Branch: version-one
+## Branch: step-one
 This branch is the starting branch for the Little App of Horrors Workshop. NgRx has not been installed and state is being managed using input/output bindings and observable services.
 
 # Set Up Ng Conf Workshop
