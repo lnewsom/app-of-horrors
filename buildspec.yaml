@@ -11,7 +11,7 @@ phases:
   build:
     commands:
       - echo Building project...
-      - echo Build started on `date`
+      - echo Build totally started on `date`
       - ng build 
   post_build:
     commands:
