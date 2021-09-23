@@ -21,15 +21,8 @@ phases:
       - ng build --${BUILD_ENV}
   post_build:
     commands:
-      - aws s3 cp ${BUILD_FOLDER} s3://${S3_BUCKET} --recursive --acl public-
       - echo Build completed on `date`
 
 artifacts:
   files:
-    - '**/*'
-  base-directory: 'dist*'
-  discard-paths: yes
-
-cache:
-  paths:
-    - '/root/.npm/**/*'
+    - dist/**/*
