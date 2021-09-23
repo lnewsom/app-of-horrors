@@ -1,4 +1,10 @@
 version: 0.2
+env:
+    variables:
+      CACHE_CONTROL: "86400"
+      S3_BUCKET: "arn:aws:s3:::lil-shop-of-horrors"
+      BUILD_FOLDER: "dist"
+      BUILD_ENV: "prod"
 
 phases:
   install:
@@ -12,9 +18,10 @@ phases:
     commands:
       - echo Building project...
       - echo Build sort of started on `date`
-      - ng build 
+      - ng build --${BUILD_ENV}
   post_build:
     commands:
+      - aws s3 cp ${BUILD_FOLDER} s3://${S3_BUCKET} --recursive --acl public-
       - echo Build completed on `date`
 
 artifacts:
