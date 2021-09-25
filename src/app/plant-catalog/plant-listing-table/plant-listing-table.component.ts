@@ -31,7 +31,7 @@ export class PlantListingTableComponent implements OnInit {
         });
 
         this.plantListings$ = zip(
-            this.restService.getPlantListings(), 
+            this.restService.getPlantListings(),
             this.restService.getPlantQuantities()
         ) // faux http calls
         .pipe(

@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - echo Installing test runner...
+      - npm ci
+  build:
+    commands:
+      - echo Running linting...
+      - echo Linting started on `date`
+      - ng lint
+  post_build:
+    commands:
+      - echo Linting completed on `date`
+
+cache:
+  paths:
+    - '/root/.npm/**/*'
