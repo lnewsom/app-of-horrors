@@ -30,7 +30,7 @@ To stop the app while it is running press Ctrl + C in the terminal that is runni
 ## Running unit tests
 
 The tests use jest. To run tests `npm test` 
-Code coverage is set to 100%
+Code coverage is set to 100% Hooray
 
 ## Running end-to-end tests
 
