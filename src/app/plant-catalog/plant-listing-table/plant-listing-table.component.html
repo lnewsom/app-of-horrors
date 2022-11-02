@@ -9,7 +9,7 @@
                 *ngIf="plantListing.category.toLowerCase() === plantType.toLowerCase() || plantType.toLowerCase() === 'all'"
                 (click)="selectPlant(plantListing)">
                 {{ plantListing.plantName }} - <i>{{ plantListing.speciesName }}</i>
-                <div *ngIf="plantListing.quantity === 0" class="text-danger">OUT OF STOCK</div>
+                <div *ngIf="plantListing.quantity === 0" class="text-danger">PLEASE WORK TEST BUILD</div>
             </div>
         </ng-container>
     </ng-container>
